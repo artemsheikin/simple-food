@@ -1,0 +1,12 @@
+.top-restaurants {
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
+		gap: 35px 30px;
+	}
+
+	&__title {
+		margin-bottom: 45px;
+		text-align: center;
+	}
+}

@@ -1,0 +1,89 @@
+.restaurant {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	max-width: 370px;
+	height: 419px;
+	border-radius: 12px;
+	box-shadow: 0 3px 15px 1px $silver-300;
+	background-color: $white;
+	&__img {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 37 / 30;
+	}
+
+	&__name,
+	&__inner {
+		padding: 0 20px;
+	}
+
+	&__name {
+		font-size: 24px;
+		font-weight: 400;
+		line-height: 130%;
+		&--popular {
+			&::after {
+				content: 'Popular';
+				margin-left: 11px;
+				font-size: 18px;
+				font-weight: 300;
+				opacity: 0.9;
+			}
+		}
+	}
+
+	&__inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__time {
+		position: relative;
+		padding-left: 30px;
+		font-size: 18px;
+		font-weight: 300;
+		opacity: 0.9;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 22px;
+			height: 22px;
+			background: url('../images/icons/timer-restoran.svg');
+			background-repeat: no-repeat;
+		}
+	}
+
+	&__arrow {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 79px;
+		height: 33px;
+		border-radius: 20px;
+		background: $orange-900;
+		z-index: 10;
+	}
+
+	&__icons {
+		width: 24px;
+		height: 24px;
+		object-fit: contain;
+	}
+
+	&__link {
+		position: absolute;
+		inset: 0;
+		transition: border-radius 0.3s, box-shadow 0.3s;
+		&:hover {
+			border-radius: 10px;
+			box-shadow: 0 3px 15px 0px rgba(255, 104, 56, 0.5);
+		}
+	}
+}

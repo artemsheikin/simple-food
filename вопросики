@@ -1,0 +1,5 @@
+1 как без обертки выставить по центру?
+
+<div class="categories__inner">
+			<a class="categories__link link" href="#">Показать еще</a>
+		</div> 

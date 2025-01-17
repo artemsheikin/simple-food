@@ -1,0 +1,116 @@
+.header {
+	padding: 60px 0;
+
+	&__logo {
+		margin-right: auto;
+	}
+
+	&__menu {
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	&__icons {
+		width: 24px;
+		height: 24px;
+	}
+
+	&__list {
+		display: flex;
+		margin-right: 52px;
+	}
+
+	&__item {
+		&:not(:last-child) {
+			margin-right: 40px;
+		}
+	}
+
+	&__link {
+		font-size: 18px;
+		@include transition;
+
+		&:focus {
+			@include focus;
+		}
+
+		&:hover {
+			@include hover;
+		}
+
+		&:active {
+			@include active;
+		}
+
+		&--active {
+			color: $orange-900;
+		}
+	}
+
+	&__user {
+		display: flex;
+	}
+
+	&__button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 9px;
+		position: relative;
+		border-radius: 5px;
+		margin-right: 7px;
+		transition: box-shadow 0.5s, background-color 0.5s, border-radius 0.5s,
+			stroke 0.5s;
+		stroke: $darkGreen-900;
+		&:not(:first-child) {
+			margin-right: 0;
+		}
+
+		&:focus {
+			border-radius: 5px;
+			background-color: rgba($darkOrange-300, 0.1);
+			box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
+		}
+
+		&:hover {
+			background-color: $orange-900;
+			stroke: $white;
+			.header__num {
+				background-color: $white;
+				color: $orange-900;
+			}
+		}
+
+		&__button {
+			&:not(:last-child) {
+				margin-right: 15px;
+			}
+		}
+
+		&:active {
+			background-color: $white;
+			box-shadow: 0 -5px 12px 0 rgba($orange-900, 0.2) inset;
+			stroke: $darkGreen-900;
+
+			.header__num {
+				background-color: $orange-900;
+				color: $white;
+			}
+		}
+	}
+
+	&__num {
+		position: absolute;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		background-color: $orange-900;
+		top: 8px;
+		right: 7px;
+		font-size: 10px;
+		color: $white;
+		text-align: center;
+		line-height: 150%;
+	}
+}

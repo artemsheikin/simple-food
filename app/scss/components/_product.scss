@@ -1,0 +1,44 @@
+.product {
+	padding: 20px 15px;
+	max-width: 218px;
+	min-height: 300px;
+	background-color: $white;
+	font-size: 15px;
+	transition: box-shadow 0.3s, border-radius 0.3s;
+
+	&:hover {
+		@include focus;
+	}
+	&__link {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__img {
+		width: 144px;
+		height: 144px;
+		object-fit: cover;
+	}
+
+	&__text {
+		text-align: center;
+		overflow: hidden;
+	}
+
+	&__prise {
+		color: $darkBlue-900;
+		font-weight: 500;
+		line-height: 140%;
+	}
+
+	&__button {
+		border-radius: 6px;
+		padding: 7px 16px;
+		color: $white;
+		font-size: 14px;
+		line-height: 130%;
+		background-color: $orange-900;
+	}
+}

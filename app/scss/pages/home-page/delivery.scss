@@ -1,0 +1,63 @@
+.delivery {
+	&__wrapper {
+		display: flex;
+		justify-content: space-evenly;
+		gap: 60px;
+	}
+
+	&__img {
+		max-width: 440px;
+		object-fit: contain;
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+		max-width: 470px;
+		padding: 60px 0;
+	}
+
+	&__text {
+		line-height: 150%;
+	}
+
+	&__item {
+		position: relative;
+		padding-left: 64px;
+		font-size: 24px;
+		line-height: 150%;
+		color: $darkBlue-900;
+		&::before {
+			content: '';
+			position: absolute;
+			width: 34px;
+			height: 34px;
+			top: 0;
+			left: 0;
+			background-image: url('../images/icons/time.svg');
+			background-repeat: no-repeat;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+	}
+
+	&__item--moped {
+		&::before {
+			background-image: url('../images/icons/moped.svg');
+		}
+	}
+
+	&__item--institution {
+		&::before {
+			background-image: url('../images/icons/institution.svg');
+		}
+	}
+
+	&__btn {
+		max-width: 168px;
+		justify-content: center;
+	}
+}

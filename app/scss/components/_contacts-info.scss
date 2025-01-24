@@ -1,11 +1,13 @@
 .contacts-info {
 	width: 100%;
 	word-wrap: break-word;
+
 	&__item {
 		font-size: 16px;
 		line-height: 200%;
 		margin-bottom: 15px;
 	}
+
 	&__link {
 		padding-left: 30px;
 		position: relative;
@@ -14,7 +16,8 @@
 		&::before {
 			content: '';
 			position: absolute;
-			background-image: url('../images/icons/footer-location.svg');
+			background-image: url('../images/icons/location.svg');
+			/* footer удали с названия */
 			width: 20px;
 			height: 20px;
 			left: 0;
@@ -26,13 +29,13 @@
 
 		&--calling {
 			&::before {
-				background-image: url('../images/icons/footer-calling.svg');
+				background-image: url('../images/icons/calling.svg');
 			}
 		}
 
 		&--message {
 			&::before {
-				background-image: url('../images/icons/footer-message.svg');
+				background-image: url('../images/icons/message.svg');
 			}
 		}
 	}

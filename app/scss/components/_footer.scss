@@ -33,6 +33,10 @@
 		height: 23px;
 	}
 
+	&__contacts-info {
+		max-width: 250px;
+	}
+
 	&__link,
 	.contacts-info__link {
 		@include transition;
@@ -60,8 +64,4 @@
 		font-size: 14px;
 		line-height: 100%;
 	}
-}
-
-.footer__contacts-info {
-	max-width: 250px;
 }

@@ -18,3 +18,90 @@
 	box-shadow: 0 0 0 2px rgba($orange-900, 0);
 	color: $darkGreen-900;
 }
+
+@mixin burger($burgerWidth, $burgerHeight, $burgerLineHeight, $burgerColor) {
+	width: $burgerWidth;
+	height: $burgerHeight;
+	position: relative;
+	color: $burgerColor;
+
+	.burger__line {
+		position: absolute;
+		left: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 100%;
+		height: $burgerLineHeight;
+		background-color: currentColor;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		width: 100%;
+		height: $burgerLineHeight;
+		background-color: currentColor;
+		transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+	}
+
+	&::before {
+		top: 0;
+	}
+
+	&::after {
+		top: calc(100% - #{$burgerLineHeight});
+	}
+
+	&--active {
+		.burger__line {
+			transform: scale(0);
+			transition: transform 0.3s ease-in-out;
+		}
+
+		&::before {
+			transform: rotate(45deg);
+			top: 50%;
+			transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+		}
+
+		&::after {
+			transform: rotate(-45deg);
+			top: 50%;
+			transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
+		}
+	}
+}
+
+@mixin media-xs {
+	@media (max-width: #{$breakpoint-xs}) {
+		@content;
+	}
+}
+
+@mixin media-sm {
+	@media (max-width: #{$breakpoint-sm}) {
+		@content;
+	}
+}
+
+@mixin media-md {
+	@media (max-width: #{$breakpoint-md}) {
+		@content;
+	}
+}
+
+@mixin media-lg {
+	@media (max-width: #{$breakpoint-lg}) {
+		@content;
+	}
+}
+
+@mixin media-xl {
+	@media (max-width: #{$breakpoint-xl}) {
+		@content;
+	}
+}

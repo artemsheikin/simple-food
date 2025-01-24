@@ -1,7 +1,7 @@
 body {
 	display: flex;
 	flex-direction: column;
-	background-color: $silver-100;
+	background-color: $silver-100 !important;
 	color: $darkGreen-900;
 	font-family: 'Rubik', sans-serif;
 	font-weight: 400;
@@ -60,6 +60,7 @@ body {
 .button {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	cursor: pointer;
 	padding: 12px 35px;
 	border-radius: 6px;
@@ -126,6 +127,7 @@ body {
 		&::after {
 			background-color: transparent;
 		}
+
 		border-radius: 6px;
 		box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
 	}
@@ -139,5 +141,17 @@ body {
 		text-shadow: 2px 2px 5px rgba($darkBlue-900, 0.5);
 		color: $darkBlue-900;
 		box-shadow: 0 0 0;
+	}
+}
+
+.swiper-pagination-bullet {
+	width: 15px;
+	height: 15px;
+	border-radius: 50%;
+	background-color: $silver-400;
+	transition: background-color 0.3s ease;
+
+	&-active {
+		background-color: $orange-900;
 	}
 }

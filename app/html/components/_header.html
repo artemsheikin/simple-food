@@ -2,6 +2,7 @@
 	<div class="container">
 
 		<nav class="header__menu">
+
 			<a class="logo header__logo" href="#">
 				<img class="logo__img" src="images/logo.svg" alt="логотип" width="200" height="40" />
 			</a>
@@ -16,24 +17,83 @@
 				<li class="header__item">
 					<a class="header__link" href="#">Контакты</a>
 				</li>
+
+				<button class="burgers burgers-style burger--active" type="button">
+					<span class="burger__line"></span>
+					<span class="sr-only">Открыть меню</span>
+				</button>
+
+				<ul class="contacts-info header__contacts-info">
+
+					<li class="contacts-info__item">
+						<a class="contacts-info__link" href="#">ул. Смирнова 2/3</a>
+					</li>
+
+					<li class="contacts-info__item">
+						<a class="contacts-info__link contacts-info__link--calling" href="tel:79068057043">79068057043</a>
+					</li>
+
+					<li class="contacts-info__item">
+						<a class="contacts-info__link contacts-info__link--message"
+							href="mailto:support@sfood.com">support@sfood.com</a>
+					</li>
+
+				</ul>
+
+				<ul class="social">
+
+					<li class="social__item">
+						<a class="social__link" href="#" target="_blank">
+							<span class="sr-only">facebook</span>
+							<svg class="social__icon">
+								<use xlink:href="images/sprite.svg#facebook"></use>
+							</svg>
+						</a>
+					</li>
+
+					<li class="social__item">
+						<a class="social__link" href="#" target="_blank">
+							<span class="sr-only">twitter</span>
+							<svg class="social__icon">
+								<use xlink:href="images/sprite.svg#twitter"></use>
+							</svg>
+						</a>
+					</li>
+
+					<li class="social__item">
+						<a class="social__link" href="#" target="_blank">
+							<span class="sr-only">instagram</span>
+							<svg class="social__icon">
+								<use xlink:href="images/sprite.svg#instagram"></use>
+							</svg>
+						</a>
+					</li>
+
+				</ul>
+
 			</ul>
 
 			<div class="header__user">
 				<button class="header__button" type="button">
 					<span class="sr-only">Поиск по сайту</span>
-					<svg class="header__icons">
+					<svg class="header__icon">
 						<use xlink:href="images/sprite.svg#search"></use>
 					</svg>
 				</button>
 
 				<button class="header__button" type="button">
 					<span class="sr-only">Корзина товара</span>
-					<svg class="header__icons" style="width: 24px; height: 24px">
+					<svg class="header__icon">
 						<use xlink:href="images/sprite.svg#cart"></use>
 					</svg>
 					<span class="header__num">4</span>
 				</button>
 			</div>
+
+			<button class="burger" type="button">
+				<span class="burger__line"></span>
+				<span class="sr-only">Открыть меню</span>
+			</button>
 
 		</nav>
 	</div>

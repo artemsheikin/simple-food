@@ -1,4 +1,8 @@
-.categories {
+.product-categories {
+	.container {
+		text-align: center;
+	}
+
 	&__title {
 		text-align: center;
 		margin-bottom: 45px;
@@ -13,8 +17,11 @@
 	&__btn {
 		display: flex;
 		align-items: center;
-		padding: 12px 36px;
 		gap: 10px;
+		padding: 12px 36px;
+		border-radius: 5px;
+		border: 1px solid $silver-300;
+		white-space: nowrap;
 		background-color: $white;
 		@include transition;
 
@@ -24,13 +31,13 @@
 
 		&:hover {
 			@include hover;
-			background-color: rgba(255, 122, 80, 0.1);
+			background-color: $hover-background;
 		}
 
 		&:active {
 			border-radius: 5px;
 			background-color: $white;
-			box-shadow: 0px -5px 12px 0px rgba(255, 104, 56, 0.2) inset;
+			box-shadow: 0 -5px 12px 0 $active-box-shadow inset;
 			color: $darkBlue-900;
 		}
 
@@ -52,8 +59,9 @@
 		margin-bottom: 55px;
 	}
 
-	&__inner {
-		display: flex;
-		justify-content: center;
+	&__item {
+		max-width: 218px;
+		min-height: 300px;
 	}
+
 }

@@ -1,8 +1,37 @@
-$(function () {
-	let swiper = new Swiper('.testimonials-swiper', {
+document.addEventListener('DOMContentLoaded', () => {
+	// Переменные для меню
+	const burgerButtons = document.querySelectorAll('.burger, .burgers');
+	const mobileMenu = document.querySelector('.header__list');
+	const logo = document.querySelector('.logo');
+	const body = document.body;
+
+	// Функция переключения меню
+	function toggleMenu() {
+		const isMenuActive = mobileMenu.classList.toggle('menu--active');
+		body.classList.toggle('lock', isMenuActive);
+		logo.classList.toggle('logo--active', isMenuActive);
+		body.style.transition = 'background-color 0.8s ease';
+		body.style.backgroundColor = isMenuActive ? 'rgba(0, 0, 0, 0.2)' : 'rgba(0, 0, 0, 0)';
+	}
+
+	// Обработчики клика для кнопок бургер-меню
+	burgerButtons.forEach((button) => button.addEventListener('click', toggleMenu));
+
+	// Закрытие меню при клике вне его области
+	document.addEventListener('click', (e) => {
+		if (!e.target.closest('.burger, .burgers, .header__list')) {
+			mobileMenu.classList.remove('menu--active');
+			body.classList.remove('lock');
+			logo.classList.remove('logo--active');
+			body.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+		}
+	});
+
+	// Инициализация Swiper
+	new Swiper('.testimonials-swiper__wrapper', {
 		slidesPerView: 1,
 		loop: true,
-		speed: 600, // Плавное перелистывание
+		speed: 600,
 		pagination: {
 			el: '.testimonials-swiper__pagination',
 			clickable: true,
@@ -16,54 +45,41 @@ $(function () {
 			disableOnInteraction: false,
 		},
 		grabCursor: true,
-	})
+	});
 
-	const list = document.querySelector('.categories__menu')
-	const items = document.querySelectorAll('.product')
-	const listItems = document.querySelectorAll('.categories__btn')
+	// Фильтрация категорий товаров
+	const list = document.querySelector('.product-categories__menu');
+	const items = document.querySelectorAll('.product-categories__item');
 
-	function filter() {
+	if (list) {
 		list.addEventListener('click', (event) => {
-			// Найти ближайший элемент с классом 'categories__btn'
-			const target = event.target.closest('.categories__btn')
-			if (!target) return
+			const target = event.target.closest('.product-categories__btn');
+			if (!target) return;
 
-			const targetId = target.dataset.id
+			const targetId = target.dataset.id;
 
-			// Убедиться, что клик был по кнопке или её дочернему элементу
-			listItems.forEach((listItem) =>
-				listItem.classList.remove('categories__btn--active')
-			)
-			target.classList.add('categories__btn--active')
+			// Убираем активный класс у всех кнопок
+			document
+				.querySelectorAll('.product-categories__btn--active')
+				.forEach((btn) => btn.classList.remove('product-categories__btn--active'));
 
-			switch (targetId) {
-				case 'burgers':
-				case 'pizza':
-				case 'sandwiches':
-				case 'asian-cuisine':
-				case 'sets':
-					getItems(targetId)
-					break
-			}
-		})
+			// Добавляем активный класс на выбранную кнопку
+			target.classList.add('product-categories__btn--active');
+
+			// Фильтрация товаров по выбранной категории
+			items.forEach((item) => {
+				item.style.display = item.classList.contains(targetId) ? 'grid' : 'none';
+			});
+		});
+
+		// Устанавливаем начальное состояние фильтрации
+		const defaultCategory = document.querySelector('[data-id="burgers"]');
+		if (defaultCategory) {
+			defaultCategory.classList.add('product-categories__btn--active'); // Активируем кнопку "burgers"
+			items.forEach((item) => {
+				item.style.display = item.classList.contains('burgers') ? 'grid' : 'none';
+			});
+		}
 	}
 
-	function getItems(className) {
-		items.forEach((item) => {
-			if (item.classList.contains(className)) {
-				item.style.display = 'grid'
-			} else {
-				item.style.display = 'none'
-			}
-		})
-	}
-
-	// Изначально показываем бургеры и устанавливаем активный класс на кнопку бургеров
-	getItems('burgers')
-	const initialActiveButton = document.querySelector('[data-id="burgers"]')
-	if (initialActiveButton) {
-		initialActiveButton.classList.add('categories__btn--active')
-	}
-
-	filter()
-})
+});

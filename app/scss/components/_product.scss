@@ -1,7 +1,10 @@
-.product {
+.product-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 	padding: 20px 15px;
-	max-width: 218px;
-	min-height: 300px;
+	border-radius: 5px;
 	background-color: $white;
 	font-size: 15px;
 	transition: box-shadow 0.3s, border-radius 0.3s;
@@ -9,16 +12,19 @@
 	&:hover {
 		@include focus;
 	}
+
 	&__link {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: space-between;
+		margin-bottom: auto;
 	}
 
 	&__img {
 		width: 144px;
 		height: 144px;
+		margin-bottom: 5px;
+		aspect-ratio: 1 / 1;
 		object-fit: cover;
 	}
 
@@ -27,7 +33,8 @@
 		overflow: hidden;
 	}
 
-	&__prise {
+	&__price {
+		margin-bottom: 10px;
 		color: $darkBlue-900;
 		font-weight: 500;
 		line-height: 140%;

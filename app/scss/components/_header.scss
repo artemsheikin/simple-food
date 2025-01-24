@@ -2,7 +2,9 @@
 	padding: 60px 0;
 
 	&__logo {
+		position: relative;
 		margin-right: auto;
+		z-index: 10;
 	}
 
 	&__menu {
@@ -11,7 +13,7 @@
 		align-items: center;
 	}
 
-	&__icons {
+	&__icon {
 		width: 24px;
 		height: 24px;
 	}
@@ -63,6 +65,7 @@
 		transition: box-shadow 0.5s, background-color 0.5s, border-radius 0.5s,
 			stroke 0.5s;
 		stroke: $darkGreen-900;
+
 		&:not(:first-child) {
 			margin-right: 0;
 		}
@@ -76,6 +79,7 @@
 		&:hover {
 			background-color: $orange-900;
 			stroke: $white;
+
 			.header__num {
 				background-color: $white;
 				color: $orange-900;
@@ -112,5 +116,141 @@
 		color: $white;
 		text-align: center;
 		line-height: 150%;
+	}
+
+	&__contacts-info,
+	.social {
+		display: none;
+	}
+}
+
+.lock {
+	overflow: hidden;
+	position: relative;
+	transition: background-color 0.8s ease; // Плавная анимация изменения фона
+	background-color: rgba(0, 0, 0, 0); // Прозрачный фон по умолчанию
+
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.5); // Затемненный фон
+	}
+}
+
+@include media-sm {
+	.header {
+		padding: 25px 0;
+
+		&__contacts-info {
+			display: block;
+		}
+
+		.social {
+			display: flex;
+		}
+
+		&__list {
+			position: absolute;
+			opacity: 0;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			flex-direction: column;
+			padding-top: 80px;
+			padding-left: 15px;
+			margin-right: 75px;
+			background-color: $white;
+			transform: translateX(-100%);
+			pointer-events: none;
+			transition: transform 0.7s ease, opacity 0.7s ease;
+			max-height: 100vh;
+			overflow-y: auto;
+			scrollbar-width: thin;
+
+			&::after {
+				content: '';
+				position: absolute;
+				left: 0;
+				right: 0;
+				height: 2px;
+				background-color: $silver-200;
+			}
+
+			&.menu--active {
+				opacity: 1;
+				transform: translateX(0);
+				pointer-events: auto;
+			}
+		}
+
+		&__item {
+			&:not(:last-child) {
+				margin-bottom: 20px;
+				margin-right: 0;
+			}
+
+			&:nth-child(1) {
+				padding-top: 25px;
+			}
+		}
+
+		.contacts-info__item:nth-child(1) {
+			position: relative;
+			padding-top: 25px;
+
+			&::after {
+				content: '';
+				position: absolute;
+				left: -15px;
+				top: 0;
+				right: 0;
+				height: 2px;
+				background-color: $silver-200;
+			}
+		}
+
+		&__user {
+			z-index: -1;
+			margin-right: 32px;
+		}
+
+		&__logo {
+			height: 23px;
+			width: 115px;
+			transition: width 0.3s ease;
+
+			&.logo--active {
+				width: 200px;
+				height: auto;
+			}
+		}
+	}
+
+	.burger {
+		@include burger(30px, 22px, 2px, $darkGreen-900);
+	}
+
+	.burgers {
+		@include burger(30px, 2px, 2px, $darkGreen-900);
+	}
+
+	.burgers-style {
+		position: absolute;
+		top: 45px;
+		right: 15px;
+
+		.burger__line {
+			background-color: $orange-100;
+			left: -5px;
+			width: 40px;
+			height: 40px;
+		}
 	}
 }

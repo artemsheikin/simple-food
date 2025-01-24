@@ -24,32 +24,36 @@
 			box-shadow: 0 0 0 2px $orange-900;
 		}
 
-		&:hover::placeholder {
-			color: $darkBlue-900;
+		&:hover {
+			&::placeholder {
+				color: $darkBlue-900;
+			}
 		}
-	}
 
-	&__btn {
-		position: relative;
-		gap: 15px;
-		width: 100%;
-		padding: 12px 41px 12px 67px;
-		font-weight: 500;
-		font-size: 14px;
-		transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
-		&::after {
-			content: '';
-			position: absolute;
-			transform: translateY(-50%);
-			top: 50%;
-			left: 43px;
-			width: 16px;
-			height: 16px;
-			background-image: url('../images/icons/subscribe-arrow.svg');
-			background-repeat: no-repeat;
-		}
-		&:focus {
-			color: $orange-900;
+		&__btn {
+			position: relative;
+			gap: 15px;
+			width: 100%;
+			padding: 12px 41px 12px 67px;
+			font-weight: 500;
+			font-size: 14px;
+			transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+
+			&::after {
+				content: '';
+				position: absolute;
+				transform: translateY(-50%);
+				top: 50%;
+				left: 43px;
+				width: 16px;
+				height: 16px;
+				background-image: url('../images/icons/subscribe-arrow.svg');
+				background-repeat: no-repeat;
+			}
+
+			&:focus {
+				color: $orange-900;
+			}
 		}
 	}
 }

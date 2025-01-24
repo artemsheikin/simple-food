@@ -2,41 +2,40 @@
   <div class="container">
     <div class="delivery__wrapper">
 
-      <img class="delivery__img" src="images/delivery/bg.png" alt="img">
+      <img class="delivery__img" src="images/delivery/bg.png">
 
       <div class="delivery__content">
 
         <h2 class="delivery__title title">
-          Оставайтесь дома, <br> а мы позаботимся о еде
+          <div class="delivery__title--space">Оставайтесь дома,</div>
+          <!-- не получается без br, с шириной не переносится как нужно добавил div ( --> а мы позаботимся о еде
         </h2>
 
-        <p class="delivery__text">
-          У нас есть вкусная еда и мы готовы доставить её к вам домой! Воспользуйтесь нашей доставкой прямо сейчас и
-          получите
-          скиидку!
-        </p>
+        <div class="delivery__text">
+          <p>
+            У нас есть вкусная еда и мы готовы доставить её к вам домой! Воспользуйтесь нашей доставкой прямо сейчас и
+            получите
+            скидку!
+          </p>
+        </div>
+
 
         <ul class="delivery__list">
           <li class="delivery__item delivery__item--time">
-            <span class="delivery__info">
-              Быстрая доставка за 15 минут
-            </span>
+            Быстрая доставка за 15 минут
           </li>
           <li class="delivery__item delivery__item--moped">
-            <span class="delivery__info">
-              Вежливые курьеры
-            </span>
+            Вежливые курьеры
           </li>
           <li class="delivery__item delivery__item--institution">
-            <span class="delivery__info">
-              Более 500 заведений
-            </span>
+            Более 500 заведений
           </li>
         </ul>
 
-        <button class="delivery__btn button">
+        <a class="delivery__link button" href="#" aria-label="Подробнее о доставке" target="_blank"
+          rel="noopener noreferrer">
           Подробнее
-        </button>
+        </a>
 
       </div>
 

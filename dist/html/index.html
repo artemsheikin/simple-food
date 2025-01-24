@@ -1,0 +1,19 @@
+<!-- prettier-ignore  -->
+@include('./include/_head.html',{ 'title': 'доставка продуктов из ресторанов за 15 минут | Главная страница ', })
+
+<h1 class="sr-only">Быстрый сервис доставки еды в вашем городе за 15 минут</h1>
+
+@include('./components/_header.html')
+
+<main class="main">
+	@include('./pages/home-page/_hero.html')
+	@include('./pages/home-page/_categories.html')
+	@include('./pages/home-page/_delivery.html')
+	@include('./pages/home-page/_top-restaurants.html')
+	@include('./pages/home-page/_testimonials.html')
+	@include('./pages/home-page/_app-download.html')
+</main>
+
+@include('./components/_footer.html') @include('./include/_footer-scripts.html')
+
+<script src="js/main/min.js"></script>

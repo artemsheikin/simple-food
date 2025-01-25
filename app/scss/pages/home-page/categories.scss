@@ -32,6 +32,8 @@
 		&:hover {
 			@include hover;
 			background-color: $hover-background;
+			box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
+
 		}
 
 		&:active {

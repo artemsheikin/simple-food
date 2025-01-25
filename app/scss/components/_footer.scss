@@ -3,7 +3,7 @@
 		display: flex;
 		justify-content: space-between;
 		padding-right: 77px;
-		padding-bottom: 47px;
+		padding-bottom: 60px;
 	}
 
 	&__logo {
@@ -55,8 +55,10 @@
 	}
 
 	&__bottom {
-		padding: 40px 0;
-		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 95px;
 		border-top: 2px solid $silver-200;
 	}
 

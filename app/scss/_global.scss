@@ -149,7 +149,28 @@ body {
 	height: 15px;
 	border-radius: 50%;
 	background-color: $silver-400;
-	transition: background-color 0.3s ease;
+	transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s;
+
+	&:focus,
+	&:hover,
+	&:active {
+		background-color: rgba($darkOrange-300, 0.3);
+		opacity: 0.9;
+	}
+
+	&:focus {
+		box-shadow: 0 0 0 2px $orange-900;
+		outline: none;
+	}
+
+	&:hover {
+		box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
+	}
+
+	&:active {
+		box-shadow: none;
+		color: rgba($orange-900, 0.9);
+	}
 
 	&-active {
 		background-color: $orange-900;

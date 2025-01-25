@@ -1,10 +1,15 @@
 .app-download {
 	&__wrapper {
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-start;
+		min-height: 380px;
 		align-items: center;
-		gap: 30px;
+		background-image: url('../images/app-download/1.jpg');
+		background-repeat: no-repeat;
+		background-position: right center;
+		background-size: auto;
 		width: 100%;
+		height: 100%;
 	}
 
 	&__inner {
@@ -29,8 +34,28 @@
 	&__link {
 		display: block;
 		width: 100%;
-		height: 100%;
+		height: 40px;
+		border-radius: 10px;
+		position: relative;
+		overflow: hidden;
+		transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s, background-color 0.3s;
+
+		&:focus {
+			@include focus;
+		}
+
+		&:hover {
+			transform: scale(1.05);
+			background-color: rgba($orange-900, 0.1); // Пример добавления фона при hover
+		}
+
+		&:active {
+			transform: scale(0.98);
+			background-color: rgba($orange-900, 0.2); // Пример изменения фона при активном состоянии
+		}
 	}
+
+
 
 	&__icons {
 		height: 40px;
@@ -43,11 +68,5 @@
 		&--app-store {
 			width: 120px;
 		}
-	}
-
-	&__img {
-		max-width: 570px;
-		height: auto;
-		object-fit: cover;
 	}
 }

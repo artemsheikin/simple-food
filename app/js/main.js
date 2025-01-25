@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	// Инициализация Swiper
 	new Swiper('.testimonials-swiper__wrapper', {
 		slidesPerView: 1,
-		loop: true,
 		speed: 600,
 		pagination: {
 			el: '.testimonials-swiper__pagination',
@@ -39,10 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		navigation: {
 			nextEl: '.testimonials-swiper__button-next',
 			prevEl: '.testimonials-swiper__button-prev',
-		},
-		autoplay: {
-			delay: 5000,
-			disableOnInteraction: false,
 		},
 		grabCursor: true,
 	});

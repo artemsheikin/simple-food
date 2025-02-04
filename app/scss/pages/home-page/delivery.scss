@@ -1,16 +1,19 @@
 .delivery {
 	&__wrapper {
 		display: flex;
-		justify-content: flex-end;
-		min-height: 585px;
+		justify-content: space-between;
 		align-items: center;
-		background-image: url('../images/delivery/bg.png');
-		background-repeat: no-repeat;
-		background-position: 70px center;
-		background-size: auto;
+		gap: 20px;
 		padding: 0 70px;
+	}
+
+	&__img {
+		max-width: 440px;
 		width: 100%;
-		height: 100%;
+		height: 585px;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
 	}
 
 	&__content {
@@ -23,6 +26,12 @@
 
 	&__text {
 		line-height: 150%;
+
+		p {
+			&:not(:last-child) {
+				margin-bottom: 8px;
+			}
+		}
 	}
 
 	&__item {
@@ -39,7 +48,6 @@
 			height: 34px;
 			top: 0;
 			left: 0;
-			background-image: url('../images/icons/time.svg');
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: contain;
@@ -47,6 +55,12 @@
 
 		&:not(:last-child) {
 			margin-bottom: 20px;
+		}
+
+		&--time {
+			&::before {
+				background-image: url('../images/icons/time.svg');
+			}
 		}
 
 		&--moped {
@@ -63,7 +77,6 @@
 	}
 
 	&__link {
-		max-width: 165px;
-		/* не пойму как отказаться от ширины,если убираем то тянется на 100% от родителя */
+		align-self: flex-start;
 	}
 }

@@ -21,7 +21,6 @@
 		padding: 12px 36px;
 		border-radius: 5px;
 		border: 1px solid $silver-300;
-		white-space: nowrap;
 		background-color: $white;
 		@include transition;
 
@@ -49,7 +48,7 @@
 		}
 	}
 
-	&__icons {
+	&__icon {
 		width: 44px;
 		height: 44px;
 	}
@@ -62,8 +61,7 @@
 	}
 
 	&__item {
-		max-width: 218px;
-		min-height: 300px;
+		height: 300px;
 	}
 
 }

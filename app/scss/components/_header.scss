@@ -23,55 +23,28 @@
 		margin-right: 10px;
 	}
 
-	&__item {
-		&:not(:last-child) {
-			margin-right: 40px;
-		}
+	&__item:not(:last-child) {
+		margin-right: 40px;
 	}
 
 	&__link {
 		font-size: 18px;
-		@include transition;
-
-		&:focus {
-			@include focus;
-		}
-
-		&:hover {
-			@include hover;
-		}
-
-		&:active {
-			@include active;
-		}
-
-		&--active {
-			color: $orange-900;
-		}
+		@include interactive-states;
 	}
 
 	&__user {
 		display: flex;
+		gap: 5px;
 	}
 
 	&__button {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 9px;
 		position: relative;
+		padding: 9px;
 		border-radius: 5px;
-		margin-right: 12px;
-		transition: box-shadow 0.5s, background-color 0.5s, border-radius 0.5s,
-			stroke 0.5s;
+		transition: box-shadow 0.5s, background-color 0.5s, border-radius 0.5s, stroke 0.5s;
 		stroke: $darkGreen-900;
 
-		&:not(:first-child) {
-			margin-right: -10px;
-		}
-
 		&:focus {
-			border-radius: 5px;
 			background-color: rgba($darkOrange-300, 0.1);
 			box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
 		}
@@ -83,12 +56,6 @@
 			.header__num {
 				background-color: $white;
 				color: $orange-900;
-			}
-		}
-
-		&__button {
-			&:not(:last-child) {
-				margin-right: 15px;
 			}
 		}
 
@@ -121,24 +88,6 @@
 	&__contacts-info,
 	.social {
 		display: none;
-	}
-}
-
-.lock {
-	overflow: hidden;
-	position: relative;
-	transition: background-color 0.8s ease; // Плавная анимация изменения фона
-	background-color: rgba(0, 0, 0, 0); // Прозрачный фон по умолчанию
-
-	&::after {
-		content: '';
-		position: absolute;
-		z-index: -1;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		background-color: rgba(0, 0, 0, 0.5); // Затемненный фон
 	}
 }
 
@@ -237,11 +186,11 @@
 		@include burger(30px, 22px, 2px, $darkGreen-900);
 	}
 
-	.burgers {
+	.burger-one {
 		@include burger(30px, 2px, 2px, $darkGreen-900);
 	}
 
-	.burgers-style {
+	.burger-one--style {
 		position: absolute;
 		top: 45px;
 		right: 15px;

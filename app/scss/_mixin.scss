@@ -3,6 +3,27 @@
 		color 0.3s;
 }
 
+@mixin interactive-states {
+	transition: box-shadow 0.3s, background-color 0.3s, border-radius 0.3s,
+		color 0.3s;
+
+	&:focus {
+		border-radius: 5px;
+		box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
+	}
+
+	&:hover {
+		color: $orange-900;
+		fill: $white;
+	}
+
+	&:active {
+		text-shadow: 2px 2px 5px rgba($darkGreen-900, 0.5);
+		box-shadow: 0 0 0 2px rgba($orange-900, 0);
+		color: $darkGreen-900;
+	}
+}
+
 @mixin focus {
 	border-radius: 5px;
 	box-shadow: 0 0 0 2px rgba($orange-900, 0.7);

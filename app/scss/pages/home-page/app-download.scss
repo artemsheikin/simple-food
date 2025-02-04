@@ -1,16 +1,20 @@
 .app-download {
 	&__wrapper {
 		display: flex;
-		justify-content: flex-start;
-		min-height: 380px;
+		justify-content: space-between;
 		align-items: center;
-		background-image: url('../images/app-download/1.jpg');
-		background-repeat: no-repeat;
-		background-position: right center;
-		background-size: auto;
-		width: 100%;
-		height: 100%;
+		gap: 30px;
 	}
+
+	&__img {
+		max-width: 570px;
+		width: 100%;
+		height: 380px;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+	}
+
 
 	&__inner {
 		max-width: 500px;
@@ -24,6 +28,12 @@
 	&__text {
 		margin-bottom: 30px;
 		line-height: 150%;
+
+		p {
+			&:not(:last-child) {
+				margin-bottom: 8px;
+			}
+		}
 	}
 
 	&__list {
@@ -32,13 +42,23 @@
 	}
 
 	&__link {
-		display: block;
-		width: 100%;
-		height: 40px;
-		border-radius: 10px;
 		position: relative;
 		overflow: hidden;
+		display: block;
+		width: 120px;
+		height: 40px;
+		border-radius: 10px;
+		object-fit: contain;
 		transition: transform 0.3s, box-shadow 0.3s, border-radius 0.3s, background-color 0.3s;
+
+		&--google-play {
+			width: 135px;
+		}
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
 
 		&:focus {
 			@include focus;
@@ -46,27 +66,12 @@
 
 		&:hover {
 			transform: scale(1.05);
-			background-color: rgba($orange-900, 0.1); // Пример добавления фона при hover
+			background-color: rgba($orange-900, 0.1);
 		}
 
 		&:active {
 			transform: scale(0.98);
-			background-color: rgba($orange-900, 0.2); // Пример изменения фона при активном состоянии
-		}
-	}
-
-
-
-	&__icons {
-		height: 40px;
-		object-fit: contain;
-
-		&--google-play {
-			width: 135px;
-		}
-
-		&--app-store {
-			width: 120px;
+			background-color: rgba($orange-900, 0.2);
 		}
 	}
 }

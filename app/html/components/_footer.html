@@ -15,7 +15,7 @@
 					<input class="subscribe-form__field" id="subscribe-form-email" type="email" placeholder="Ваш email"
 						name="email" required>
 					<button class="subscribe-form__btn button" type="submit">
-						<svg class="subscribe-form__btn--icon">
+						<svg class="subscribe-form__icon" aria-hidden>
 							<use xlink:href="images/sprite.svg#subscribe-arrow"></use>
 						</svg>
 						Подписаться
@@ -81,7 +81,7 @@
 				<ul class="contacts-info footer__contacts-info">
 
 					<li class="contacts-info__item">
-						<a class="contacts-info__link" href="#">ул. Смирнова 2/3</a>
+						<a class="contacts-info__link contacts-info__link--adress" href="#">ул. Смирнова 2/3</a>
 					</li>
 
 					<li class="contacts-info__item">
@@ -95,30 +95,30 @@
 
 				</ul>
 
-				<ul class="social">
+				<ul class="socials">
 
-					<li class="social__item">
-						<a class="social__link" href="#" target="_blank">
+					<li class="socials__item">
+						<a class="socials__link" href="#" target="_blank">
 							<span class="sr-only">facebook</span>
-							<svg class="social__icon">
+							<svg class="socials__icon" aria-hidden>
 								<use xlink:href="images/sprite.svg#facebook"></use>
 							</svg>
 						</a>
 					</li>
 
-					<li class="social__item">
-						<a class="social__link" href="#" target="_blank">
+					<li class="socials__item">
+						<a class="socials__link" href="#" target="_blank">
 							<span class="sr-only">twitter</span>
-							<svg class="social__icon">
+							<svg class="socials__icon" aria-hidden>
 								<use xlink:href="images/sprite.svg#twitter"></use>
 							</svg>
 						</a>
 					</li>
 
-					<li class="social__item">
-						<a class="social__link" href="#" target="_blank">
+					<li class="socials__item">
+						<a class="socials__link" href="#" target="_blank">
 							<span class="sr-only">instagram</span>
-							<svg class="social__icon">
+							<svg class="socials__icon" aria-hidden>
 								<use xlink:href="images/sprite.svg#instagram"></use>
 							</svg>
 						</a>
@@ -133,7 +133,9 @@
 	</div>
 
 	<div class="footer__bottom">
-		<span class="footer__text">© 2021 Simple Food</span>
+		<div class="container">
+			<span class="footer__text">© 2021 Simple Food</span>
+		</div>
 	</div>
 
 </footer>

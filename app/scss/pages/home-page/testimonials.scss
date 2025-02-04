@@ -21,8 +21,9 @@
 	}
 
 	&__img {
-		width: 300px;
-		height: 300px;
+		max-width: 300px;
+		width: 100%;
+		aspect-ratio: 1;
 		border-radius: 50%;
 		object-fit: cover;
 	}
@@ -30,9 +31,11 @@
 	&__box {
 		max-width: 610px;
 		width: 100%;
+
 	}
 
-	&__box--wrapper {
+
+	&__info {
 		padding-left: 40px;
 	}
 
@@ -42,6 +45,12 @@
 		font-style: italic;
 		line-height: 150%;
 
+		p {
+			&:not(:last-child) {
+				margin-bottom: 8px;
+			}
+		}
+
 		&::after,
 		&::before {
 			content: '';
@@ -50,6 +59,8 @@
 			height: 20px;
 			background-image: url('../images/icons/marks-left.svg');
 			background-repeat: no-repeat;
+			background-position: center;
+			background-size: cover;
 		}
 
 		&::after {
@@ -100,11 +111,18 @@
 		cursor: pointer;
 		transition: background-color 0.5s, box-shadow 0.5s, opacity 0.3s;
 
+		&:focus {
+			outline: none;
+		}
+
+		&:focus,
+		&:hover {
+			box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
+		}
+
 		&:focus,
 		&:hover,
 		&:active {
-			box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
-			outline: none;
 			background-color: rgba($darkOrange-300, 0.3);
 		}
 
@@ -117,12 +135,16 @@
 			color: rgba($orange-900, 0.9);
 			box-shadow: none;
 		}
+
+		/* делал по стайл-гайду ,по этому не отличается ) */
 	}
 
 	.swiper-button-disabled {
 		box-shadow: 0 0 0 2px $orange-900;
 		background-color: rgba($darkOrange-300, 0.3);
 		color: $orange-900;
+		cursor: default;
 		border: none;
+		/* может я что-то не так,понял но там тоже так,стоит последний элемент и такие стили*/
 	}
 }

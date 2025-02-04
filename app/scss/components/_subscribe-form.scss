@@ -43,14 +43,14 @@
 		&:focus {
 			color: $orange-900;
 		}
+	}
 
-		&--icon {
-			position: absolute;
-			transform: translateY(-50%);
-			top: 50%;
-			left: 43px;
-			width: 16px;
-			height: 16px;
-		}
+	&__icon {
+		position: absolute;
+		transform: translateY(-50%);
+		top: 50%;
+		left: 43px;
+		width: 16px;
+		height: 16px;
 	}
 }

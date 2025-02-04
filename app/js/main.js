@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 	// Переменные для меню
-	const burgerButtons = document.querySelectorAll('.burger, .burgers');
+	const burgerButtons = document.querySelectorAll('.burger, .burger-one');
 	const mobileMenu = document.querySelector('.header__list');
 	const logo = document.querySelector('.logo');
 	const body = document.body;
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// Закрытие меню при клике вне его области
 	document.addEventListener('click', (e) => {
-		if (!e.target.closest('.burger, .burgers, .header__list')) {
+		if (!e.target.closest('.burger, .burger-one, .header__list')) {
 			mobileMenu.classList.remove('menu--active');
 			body.classList.remove('lock');
 			logo.classList.remove('logo--active');

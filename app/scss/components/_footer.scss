@@ -2,6 +2,7 @@
 	&__top {
 		display: flex;
 		justify-content: space-between;
+		gap: 20px;
 		padding-right: 77px;
 		padding-bottom: 60px;
 	}
@@ -11,26 +12,17 @@
 	}
 
 	&__wrapper {
-		display: flex;
-		flex-direction: column;
 		max-width: 200px;
 	}
 
 	&__list {
 		display: grid;
-		grid-template-columns: max(153px) max(89px) max(187px);
-		grid-template-rows: 1fr 1fr 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
+		column-gap: 10px;
 		width: 100%;
 		max-width: 571px;
-		max-height: 152px;
 		font-size: 18px;
 		line-height: 130%;
-		word-wrap: break-word;
-		justify-content: space-between;
-	}
-
-	&__item {
-		height: 23px;
 	}
 
 	&__contacts-info {
@@ -39,26 +31,14 @@
 
 	&__link,
 	.contacts-info__link {
-		@include transition;
-
-		&:focus {
-			@include focus;
-		}
-
-		&:hover {
-			@include hover;
-		}
-
-		&:active {
-			@include active;
-		}
+		@include interactive-states;
 	}
 
 	&__bottom {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		min-height: 95px;
+		padding: 30px;
 		border-top: 2px solid $silver-200;
 	}
 

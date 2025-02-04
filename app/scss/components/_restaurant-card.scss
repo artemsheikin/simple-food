@@ -1,4 +1,4 @@
-.restaurant-cart {
+.restaurant-card {
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -12,11 +12,15 @@
 		width: 100%;
 		height: auto;
 		aspect-ratio: 37 / 30;
-		object-fit: contain;
+		object-fit: cover;
 		border-radius: 12px;
 	}
 
 	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
 		padding: 15px 20px;
 	}
 
@@ -31,6 +35,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		gap: 20px;
 	}
 
 	&__time {
@@ -47,7 +52,7 @@
 			left: 0;
 			width: 22px;
 			height: 22px;
-			background-image: url('../images/icons/timer-restoran.svg');
+			background-image: url('../images/icons/time-default.svg');
 			background-repeat: no-repeat;
 			background-position: center;
 			background-size: contain;
@@ -72,10 +77,28 @@
 			transition: border-radius 0.3s, box-shadow 0.3s, opacity 0.3s;
 		}
 
-		&:hover::after {
-			border-radius: 10px;
-			box-shadow: 0 3px 15px 0 $orange-900;
-			opacity: 0.5;
+		&:hover {
+			&::after {
+				border-radius: 10px;
+				box-shadow: 0 3px 15px 0 $orange-900;
+				opacity: 0.5;
+			}
+		}
+
+		&:focus {
+			&::after {
+				border-radius: 8px;
+				box-shadow: 0 0 10px 2px rgba($orange-900, 0.9);
+				opacity: 1;
+			}
+		}
+
+		&:active {
+			&::after {
+				border-radius: 6px;
+				box-shadow: 0 0 20px 4px rgba($orange-900, 1);
+				opacity: 0.9;
+			}
 		}
 	}
 

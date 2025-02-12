@@ -28,21 +28,21 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	// Инициализация Swiper
-	new Swiper('.testimonials-swiper__wrapper', {
+	new Swiper('.testimonials__wrapper', {
 		slidesPerView: 1,
 		speed: 600,
 		pagination: {
-			el: '.testimonials-swiper__pagination',
+			el: '.testimonials__pagination',
 			clickable: true,
 		},
 		navigation: {
-			nextEl: '.testimonials-swiper__button-next',
-			prevEl: '.testimonials-swiper__button-prev',
+			nextEl: '.testimonials__button-next',
+			prevEl: '.testimonials__button-prev',
 		},
 		grabCursor: true,
 	});
 
-	// Фильтрация категорий товаров
+	// Фильтрация товаров по `data-category`
 	const list = document.querySelector('.product-categories__menu');
 	const items = document.querySelectorAll('.product-categories__item');
 
@@ -51,30 +51,34 @@ document.addEventListener('DOMContentLoaded', () => {
 			const target = event.target.closest('.product-categories__btn');
 			if (!target) return;
 
-			const targetId = target.dataset.id;
+			const buttons = list.querySelectorAll('.product-categories__btn');
+			const targetCategory = target.dataset.category;
 
 			// Убираем активный класс у всех кнопок
-			document
-				.querySelectorAll('.product-categories__btn--active')
-				.forEach((btn) => btn.classList.remove('product-categories__btn--active'));
+			buttons.forEach(btn => {
+				btn.classList.remove('product-categories__btn--active');
+				btn.removeAttribute('tabindex');
+			});
 
 			// Добавляем активный класс на выбранную кнопку
 			target.classList.add('product-categories__btn--active');
+			target.setAttribute('tabindex', '-1');
 
-			// Фильтрация товаров по выбранной категории
-			items.forEach((item) => {
-				item.style.display = item.classList.contains(targetId) ? 'grid' : 'none';
+			// Фильтрация товаров по `data-category`
+			items.forEach(item => {
+				item.style.display = item.dataset.category === targetCategory ? 'grid' : 'none';
 			});
 		});
 
-		// Устанавливаем начальное состояние фильтрации
-		const defaultCategory = document.querySelector('[data-id="burgers"]');
+		// Устанавливаем начальное состояние (по умолчанию "burgers")
+		const defaultCategory = list.querySelector('[data-category="burgers"]');
 		if (defaultCategory) {
-			defaultCategory.classList.add('product-categories__btn--active'); // Активируем кнопку "burgers"
-			items.forEach((item) => {
-				item.style.display = item.classList.contains('burgers') ? 'grid' : 'none';
+			defaultCategory.classList.add('product-categories__btn--active');
+			defaultCategory.setAttribute('tabindex', '-1');
+
+			items.forEach(item => {
+				item.style.display = item.dataset.category === 'burgers' ? 'grid' : 'none';
 			});
 		}
 	}
-
 });

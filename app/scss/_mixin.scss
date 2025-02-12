@@ -1,3 +1,19 @@
+@mixin line-clamp($lines: 1) {
+	@if $lines <=1 {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	@else {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: $lines;
+		-webkit-box-orient: vertical;
+	}
+}
+
 @mixin transition {
 	transition: box-shadow 0.3s, background-color 0.3s, border-radius 0.3s,
 		color 0.3s;
@@ -38,6 +54,28 @@
 	text-shadow: 2px 2px 5px rgba($darkGreen-900, 0.5);
 	box-shadow: 0 0 0 2px rgba($orange-900, 0);
 	color: $darkGreen-900;
+}
+
+@mixin transition-card {
+	transition: border-radius 0.3s, box-shadow 0.3s, opacity 0.3s;
+}
+
+@mixin focus-card {
+	border-radius: 8px;
+	box-shadow: 0 0 10px 2px rgba($orange-900, 0.9);
+	opacity: 1;
+}
+
+@mixin hover-card {
+	border-radius: 10px;
+	box-shadow: 0 3px 15px 0 $orange-900;
+	opacity: 0.5;
+}
+
+@mixin active-card {
+	border-radius: 6px;
+	box-shadow: 0 0 20px 4px rgba($orange-900, 1);
+	opacity: 0.9;
 }
 
 @mixin burger($burgerWidth, $burgerHeight, $burgerLineHeight, $burgerColor) {

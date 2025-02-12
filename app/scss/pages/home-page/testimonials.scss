@@ -5,19 +5,23 @@
 		margin-bottom: 50px;
 		text-align: center;
 	}
-}
 
-.testimonials-swiper {
-	max-width: 1035px;
-	margin: 0 auto;
-	padding-bottom: 2px;
-	overflow: hidden;
+	&__wrapper {
+		max-width: 1035px;
+		margin: 0 auto;
+		padding-bottom: 2px;
+		overflow: hidden;
+	}
+
+
+	&__inner {
+		margin-bottom: 45px;
+	}
 
 	&__slide {
 		display: flex;
 		justify-content: space-evenly;
 		align-items: center;
-		margin-bottom: 45px;
 	}
 
 	&__img {
@@ -120,7 +124,6 @@
 			box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
 		}
 
-		&:focus,
 		&:hover,
 		&:active {
 			background-color: rgba($darkOrange-300, 0.3);
@@ -135,16 +138,12 @@
 			color: rgba($orange-900, 0.9);
 			box-shadow: none;
 		}
-
-		/* делал по стайл-гайду ,по этому не отличается ) */
 	}
+}
 
-	.swiper-button-disabled {
-		box-shadow: 0 0 0 2px $orange-900;
-		background-color: rgba($darkOrange-300, 0.3);
-		color: $orange-900;
-		cursor: default;
-		border: none;
-		/* может я что-то не так,понял но там тоже так,стоит последний элемент и такие стили*/
-	}
+.swiper-button-disabled {
+	cursor: default;
+	pointer-events: none;
+	box-shadow: none;
+	opacity: 0.5;
 }

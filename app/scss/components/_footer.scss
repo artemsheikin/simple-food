@@ -3,7 +3,6 @@
 		display: flex;
 		justify-content: space-between;
 		gap: 20px;
-		padding-right: 77px;
 		padding-bottom: 60px;
 	}
 
@@ -13,6 +12,7 @@
 
 	&__wrapper {
 		max-width: 200px;
+		width: 100%;
 	}
 
 	&__list {
@@ -20,17 +20,17 @@
 		grid-template-columns: 1fr 1fr 1fr;
 		column-gap: 10px;
 		width: 100%;
-		max-width: 571px;
+		max-width: 650px;
 		font-size: 18px;
 		line-height: 130%;
 	}
 
 	&__contacts-info {
 		max-width: 250px;
+		width: 100%;
 	}
 
-	&__link,
-	.contacts-info__link {
+	&__link {
 		@include interactive-states;
 	}
 

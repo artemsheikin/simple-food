@@ -12,6 +12,7 @@
 		padding-left: 30px;
 		position: relative;
 		white-space: nowrap;
+		@include interactive-states;
 
 		&::before {
 			content: '';
@@ -25,7 +26,7 @@
 			background-position: center;
 		}
 
-		&--calling {
+		&--adress {
 			&::before {
 				background-image: url('../images/icons/location.svg');
 			}

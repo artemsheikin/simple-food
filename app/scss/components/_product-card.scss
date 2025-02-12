@@ -1,19 +1,18 @@
 .product-card {
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
+	text-align: center;
+	gap: 12px;
 	padding: 20px 15px;
 	border-radius: 5px;
 	background-color: $white;
 	font-size: 15px;
 	transition: box-shadow 0.3s, border-radius 0.3s;
 
-	&:hover {
-		@include focus;
-	}
-
-	&__link {
+	&__inner {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -23,29 +22,47 @@
 	&__img {
 		width: 144px;
 		height: 144px;
-		margin-bottom: 5px;
 		aspect-ratio: 1 / 1;
 		object-fit: cover;
 	}
 
 	&__text {
 		overflow: hidden;
+		@include line-clamp(3);
 	}
 
 	&__price {
-		margin-bottom: 10px;
 		color: $darkBlue-900;
 		font-weight: 500;
 		line-height: 140%;
 	}
 
 	&__button {
-		margin: 0 0 5px 3px;
+		z-index: 10;
 		border-radius: 6px;
 		padding: 7px 16px;
 		color: $white;
 		font-size: 14px;
 		line-height: 130%;
 		background-color: $orange-900;
+	}
+
+	&__link {
+		z-index: 1;
+		position: absolute;
+		inset: 0;
+		@include transition-card;
+
+		&:hover {
+			@include focus;
+		}
+
+		&:focus {
+			@include focus-card;
+		}
+
+		&:active {
+			@include active-card;
+		}
 	}
 }

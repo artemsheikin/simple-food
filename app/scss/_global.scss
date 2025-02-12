@@ -62,6 +62,7 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	gap: 10px;
 	cursor: pointer;
 	padding: 12px 35px;
 	border-radius: 6px;
@@ -70,17 +71,17 @@ body {
 	font-size: 18px;
 	transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
 
-	&:focus,
+	&:focus-visible,
 	&:hover {
 		color: $orange-900;
 	}
 
-	&:focus,
+	&:focus-visible,
 	&:active {
 		background-color: rgba($darkOrange-300, 0.1);
 	}
 
-	&:focus {
+	&:focus-visible {
 		box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
 	}
 
@@ -152,7 +153,6 @@ body {
 	background-color: $silver-400;
 	transition: background-color 0.3s, box-shadow 0.3s, opacity 0.3s;
 
-	&:focus,
 	&:hover,
 	&:active {
 		background-color: rgba($darkOrange-300, 0.3);
@@ -162,6 +162,7 @@ body {
 	&:focus {
 		box-shadow: 0 0 0 2px $orange-900;
 		outline: none;
+		opacity: 0.9;
 	}
 
 	&:hover {
@@ -175,6 +176,8 @@ body {
 
 	&-active {
 		background-color: $orange-900;
+		pointer-events: none;
+		user-select: none;
 	}
 }
 

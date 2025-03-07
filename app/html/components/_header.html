@@ -7,71 +7,76 @@
 				<img class="logo__img" src="images/logo.svg" alt="логотип" width="200" height="40" />
 			</a>
 
-			<ul class="header__list">
-				<li class="header__item">
-					<a class="header__link header__link--active" href="#">Главная</a>
-				</li>
-				<li class="header__item">
-					<a class="header__link" href="#">Блюда</a>
-				</li>
-				<li class="header__item">
-					<a class="header__link" href="#">Контакты</a>
-				</li>
 
-				<button class="burger-one .burger-one--style burger--active" type="button">
-					<span class="burger__line"></span>
-					<span class="sr-only">Открыть меню</span>
-				</button>
+			<div class="header__wrapper">
 
-				<ul class="contacts-info header__contacts-info">
+				<div class="header__inner">
 
-					<li class="contacts-info__item">
-						<a class="contacts-info__link" href="#">ул. Смирнова 2/3</a>
-					</li>
+					<ul class="header__list">
+						<li class="header__item">
+							<a class="header__link header__link--active" href="#">Главная</a>
+						</li>
+						<li class="header__item">
+							<a class="header__link" href="#">Блюда</a>
+						</li>
+						<li class="header__item">
+							<a class="header__link" href="#">Контакты</a>
+						</li>
+					</ul>
 
-					<li class="contacts-info__item">
-						<a class="contacts-info__link contacts-info__link--calling" href="tel:79068057043">79068057043</a>
-					</li>
+					<ul class="contacts-info header__contacts-info">
 
-					<li class="contacts-info__item">
-						<a class="contacts-info__link contacts-info__link--message"
-							href="mailto:support@sfood.com">support@sfood.com</a>
-					</li>
+						<li class="contacts-info__item contacts-info__item--adress">
+							<a class="contacts-info__link" href="#">
+								ул. Смирнова 2/3 ул.
+							</a>
+						</li>
 
-				</ul>
+						<li class="contacts-info__item contacts-info__item--calling">
+							<a class="contacts-info__link" href="tel:79068057043">79068057043</a>
+						</li>
 
-				<ul class="socials">
+						<li class="contacts-info__item contacts-info__item--message">
+							<a class="contacts-info__link" href="mailto:support@sfood.com">support@sfood.com</a>
+						</li>
 
-					<li class="socials__item">
-						<a class="socials__link" href="#" target="_blank">
-							<span class="sr-only">facebook</span>
-							<svg class="socials__icon">
-								<use xlink:href="images/sprite.svg#facebook"></use>
-							</svg>
-						</a>
-					</li>
+					</ul>
 
-					<li class="socials__item">
-						<a class="socials__link" href="#" target="_blank">
-							<span class="sr-only">twitter</span>
-							<svg class="socials__icon">
-								<use xlink:href="images/sprite.svg#twitter"></use>
-							</svg>
-						</a>
-					</li>
+					<ul class="socials header__socials">
 
-					<li class="socials__item">
-						<a class="socials__link" href="#" target="_blank">
-							<span class="sr-only">instagram</span>
-							<svg class="socials__icon">
-								<use xlink:href="images/sprite.svg#instagram"></use>
-							</svg>
-						</a>
-					</li>
+						<li class="socials__item">
+							<a class="socials__link" href="#" target="_blank">
+								<span class="sr-only">facebook</span>
+								<svg class="socials__icon" aria-hidden>
+									<use xlink:href="images/sprite.svg#facebook"></use>
+								</svg>
+							</a>
+						</li>
 
-				</ul>
+						<li class="socials__item">
+							<a class="socials__link" href="#" target="_blank">
+								<span class="sr-only">twitter</span>
+								<svg class="socials__icon" aria-hidden>
+									<use xlink:href="images/sprite.svg#twitter"></use>
+								</svg>
+							</a>
+						</li>
 
-			</ul>
+						<li class="socials__item">
+							<a class="socials__link" href="#" target="_blank">
+								<span class="sr-only">instagram</span>
+								<svg class="socials__icon" aria-hidden>
+									<use xlink:href="images/sprite.svg#instagram"></use>
+								</svg>
+							</a>
+						</li>
+
+					</ul>
+
+				</div>
+
+			</div>
+
 
 			<div class="header__user">
 				<button class="header__button" type="button">
@@ -90,11 +95,17 @@
 				</button>
 			</div>
 
-			<button class="burger" type="button">
+			<button class="burger burger--close" type="button">
 				<span class="burger__line"></span>
 				<span class="sr-only">Открыть меню</span>
 			</button>
 
+			<button class="burger burger--open" type="button">
+				<span class="burger__line"></span>
+				<span class="sr-only">Закрыть меню</span>
+			</button>
+
 		</nav>
+
 	</div>
 </header>

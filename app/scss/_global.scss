@@ -52,7 +52,7 @@ body {
 	}
 
 	&__img {
-		object-fit: cover;
+		object-fit: contain;
 		width: 100%;
 		height: 100%;
 	}
@@ -190,11 +190,74 @@ body {
 	&::after {
 		content: '';
 		position: absolute;
-		z-index: -1;
+		z-index: 1;
 		left: 0;
 		right: 0;
 		top: 0;
 		bottom: 0;
 		background-color: rgba($black, 0.5);
+	}
+}
+
+@include media-xl {
+	.section {
+		padding-bottom: 104px;
+	}
+}
+
+@include media-lg {
+	.section {
+		padding-bottom: 88px;
+	}
+}
+
+@include media-md {
+	.title {
+		font-size: 32px;
+	}
+
+	body {
+		font-size: 18px;
+	}
+
+	.button {
+		font-size: 16px;
+	}
+
+	.section {
+		padding-bottom: 72px;
+	}
+}
+
+@include media-sm {
+	.title {
+		font-size: 28px;
+	}
+
+	body {
+		font-size: 16px;
+	}
+
+	.button {
+		font-size: 14px;
+	}
+
+	.section {
+		padding-bottom: 56px;
+	}
+}
+
+@include media-xs {
+	.title {
+		font-size: 24px;
+	}
+
+	.logo {
+		height: 23px;
+		width: 115px;
+	}
+
+	.section {
+		padding-bottom: 40px;
 	}
 }

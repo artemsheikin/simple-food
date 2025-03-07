@@ -81,3 +81,37 @@
 		}
 	}
 }
+
+@include media-md {
+	.app-download {
+		&__title {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+@include media-sm {
+	.app-download {
+		&__inner {
+			max-width: 100%;
+		}
+
+		&__img {
+			display: none;
+		}
+	}
+}
+
+@include media-xs {
+	.app-download {
+
+		&__title,
+		&__text {
+			margin-bottom: 15px;
+		}
+
+		&__text {
+			font-size: 14px;
+		}
+	}
+}

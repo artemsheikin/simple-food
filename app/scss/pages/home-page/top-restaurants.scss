@@ -1,12 +1,41 @@
 .top-restaurants {
 	&__grid {
 		display: grid;
-		grid-template-columns: repeat(3, 1fr); /* 3 колонки одинаковой ширины */
+		grid-template-columns: repeat(3, 1fr);
+		/* 3 колонки одинаковой ширины */
 		gap: 35px 30px;
 	}
 
 	&__title {
 		margin-bottom: 45px;
 		text-align: center;
+	}
+
+	&__pagination {
+		display: none;
+	}
+}
+
+@include media-lg {
+	.top-restaurants {
+		&__grid {
+			grid-template-columns: auto;
+			grid-auto-flow: column;
+			gap: 0;
+			margin-bottom: 50px;
+		}
+
+		&__pagination {
+			display: flex;
+			justify-content: center;
+		}
+	}
+}
+
+@include media-xs {
+	.top-restaurants {
+		&__title {
+			margin-bottom: 30px;
+		}
 	}
 }

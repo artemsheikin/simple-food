@@ -22,13 +22,7 @@
 	&__img {
 		width: 144px;
 		height: 144px;
-		aspect-ratio: 1 / 1;
 		object-fit: cover;
-	}
-
-	&__text {
-		overflow: hidden;
-		@include line-clamp(3);
 	}
 
 	&__price {
@@ -38,7 +32,7 @@
 	}
 
 	&__button {
-		z-index: 10;
+		z-index: 1;
 		border-radius: 6px;
 		padding: 7px 16px;
 		color: $white;
@@ -48,20 +42,27 @@
 	}
 
 	&__link {
-		z-index: 1;
-		position: absolute;
-		inset: 0;
-		@include transition-card;
+		overflow: hidden;
+		@include line-clamp(3);
 
-		&:hover {
+		&::before {
+			content: '';
+			z-index: 1;
+			position: absolute;
+			inset: 0;
+			display: block;
+			@include transition-card;
+		}
+
+		&:hover::before {
 			@include focus;
 		}
 
-		&:focus {
+		&:focus::before {
 			@include focus-card;
 		}
 
-		&:active {
+		&:active::before {
 			@include active-card;
 		}
 	}

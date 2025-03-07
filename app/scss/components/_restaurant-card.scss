@@ -13,7 +13,6 @@
 		height: auto;
 		aspect-ratio: 37 / 30;
 		object-fit: cover;
-		border-radius: 12px;
 	}
 
 	&__wrapper {
@@ -103,4 +102,12 @@
 		height: 24px;
 	}
 
+}
+
+@include media-xs {
+	.restaurant-card {
+		&__wrapper {
+			padding: 25px 20px;
+		}
+	}
 }

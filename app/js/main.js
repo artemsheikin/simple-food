@@ -1,48 +1,67 @@
 document.addEventListener('DOMContentLoaded', () => {
-	// Переменные для меню
-	const burgerButtons = document.querySelectorAll('.burger, .burger-one');
-	const mobileMenu = document.querySelector('.header__list');
-	const logo = document.querySelector('.logo');
+	// Управление мобильным меню
+	const burgerOpen = document.querySelector('.burger--open');
+	const burgerClose = document.querySelector('.burger--close');
+	const mobileMenu = document.querySelector('.header__wrapper');
 	const body = document.body;
+	const logo = document.querySelector('.header__logo');
 
-	// Функция переключения меню
-	function toggleMenu() {
-		const isMenuActive = mobileMenu.classList.toggle('menu--active');
-		body.classList.toggle('lock', isMenuActive);
-		logo.classList.toggle('logo--active', isMenuActive);
-		body.style.transition = 'background-color 0.8s ease';
-		body.style.backgroundColor = isMenuActive ? 'rgba(0, 0, 0, 0.2)' : 'rgba(0, 0, 0, 0)';
-	}
+	const toggleMenu = (isOpen) => {
+		mobileMenu.classList.toggle('menu--active', isOpen);
+		burgerClose.classList.toggle('burger--active', isOpen);
+		logo.classList.toggle('logo--active', isOpen);
+		body.classList.toggle('lock', isOpen);
+	};
 
-	// Обработчики клика для кнопок бургер-меню
-	burgerButtons.forEach((button) => button.addEventListener('click', toggleMenu));
+	burgerOpen?.addEventListener('click', () => toggleMenu(true));
+	burgerClose?.addEventListener('click', () => toggleMenu(false));
 
-	// Закрытие меню при клике вне его области
-	document.addEventListener('click', (e) => {
-		if (!e.target.closest('.burger, .burger-one, .header__list')) {
-			mobileMenu.classList.remove('menu--active');
-			body.classList.remove('lock');
-			logo.classList.remove('logo--active');
-			body.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+	// Инициализация Swiper с кэшированием экземпляров
+	let swipers = {};
+
+	const initSwiper = (selector, options, key) => {
+		if (window.innerWidth <= 1200) {
+			if (!swipers[key]) {
+				swipers[key] = new Swiper(selector, options);
+			} else {
+				swipers[key].update();
+			}
+		} else {
+			if (swipers[key]) {
+				swipers[key].destroy(true, true);
+				delete swipers[key];
+			}
 		}
-	});
+	};
 
-	// Инициализация Swiper
+	const updateSwipers = () => {
+		initSwiper('.product-categories__swiper-menu', {
+			slidesPerView: 'auto',
+			spaceBetween: window.innerWidth <= 576 ? 10 : 20,
+			grabCursor: true,
+		}, 'product');
+
+		const slidesPerView = window.innerWidth <= 576 ? 1 : window.innerWidth <= 992 ? 2 : 3;
+		initSwiper('.top-restaurants__swiper', {
+			slidesPerView,
+			spaceBetween: 20,
+			grabCursor: true,
+			pagination: { el: '.top-restaurants__pagination', clickable: true },
+		}, 'restaurants');
+	};
+
+	updateSwipers();
+	window.addEventListener('resize', updateSwipers);
+
 	new Swiper('.testimonials__wrapper', {
 		slidesPerView: 1,
 		speed: 600,
-		pagination: {
-			el: '.testimonials__pagination',
-			clickable: true,
-		},
-		navigation: {
-			nextEl: '.testimonials__button-next',
-			prevEl: '.testimonials__button-prev',
-		},
+		pagination: { el: '.testimonials__pagination', clickable: true },
+		navigation: { nextEl: '.testimonials__button-next', prevEl: '.testimonials__button-prev' },
 		grabCursor: true,
 	});
 
-	// Фильтрация товаров по `data-category`
+	// Фильтрация товаров по категориям
 	const list = document.querySelector('.product-categories__menu');
 	const items = document.querySelectorAll('.product-categories__item');
 
@@ -51,34 +70,15 @@ document.addEventListener('DOMContentLoaded', () => {
 			const target = event.target.closest('.product-categories__btn');
 			if (!target) return;
 
-			const buttons = list.querySelectorAll('.product-categories__btn');
-			const targetCategory = target.dataset.category;
-
-			// Убираем активный класс у всех кнопок
-			buttons.forEach(btn => {
-				btn.classList.remove('product-categories__btn--active');
-				btn.removeAttribute('tabindex');
-			});
-
-			// Добавляем активный класс на выбранную кнопку
+			list.querySelectorAll('.product-categories__btn').forEach(btn => btn.classList.remove('product-categories__btn--active'));
 			target.classList.add('product-categories__btn--active');
-			target.setAttribute('tabindex', '-1');
 
-			// Фильтрация товаров по `data-category`
-			items.forEach(item => {
-				item.style.display = item.dataset.category === targetCategory ? 'grid' : 'none';
-			});
+			const category = target.dataset.category;
+			items.forEach(item => item.style.display = item.dataset.category === category ? 'grid' : 'none');
 		});
 
-		// Устанавливаем начальное состояние (по умолчанию "burgers")
 		const defaultCategory = list.querySelector('[data-category="burgers"]');
-		if (defaultCategory) {
-			defaultCategory.classList.add('product-categories__btn--active');
-			defaultCategory.setAttribute('tabindex', '-1');
-
-			items.forEach(item => {
-				item.style.display = item.dataset.category === 'burgers' ? 'grid' : 'none';
-			});
-		}
+		defaultCategory?.classList.add('product-categories__btn--active');
+		items.forEach(item => item.style.display = item.dataset.category === 'burgers' ? 'grid' : 'none');
 	}
 });

@@ -25,6 +25,10 @@
 		line-height: 130%;
 	}
 
+	&__info {
+		flex-shrink: 0;
+	}
+
 	&__contacts-info {
 		max-width: 250px;
 		width: 100%;
@@ -45,5 +49,49 @@
 	&__text {
 		font-size: 14px;
 		line-height: 100%;
+	}
+}
+
+@include media-sm {
+	.footer {
+		&__top {
+			flex-wrap: wrap;
+			margin: 0 auto;
+			max-width: 650px;
+		}
+
+		&__wrapper {
+			order: -2;
+		}
+
+		&__info {
+			order: -1;
+		}
+
+		&__list {
+			max-width: 100%;
+		}
+	}
+}
+
+@include media-xs {
+	.footer {
+		&__logo {
+			width: 200px;
+			height: 40px;
+		}
+
+		&__top {
+			padding-bottom: 50px;
+		}
+
+		&__list {
+			grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+			gap: 20px;
+		}
+
+		&__bottom {
+			padding: 20px;
+		}
 	}
 }

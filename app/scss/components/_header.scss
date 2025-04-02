@@ -1,10 +1,25 @@
 .header {
 	padding: 60px 0;
 
+	@include mq("tablet") {
+		padding-top: 25px;
+	}
+
+	@include mq("phone") {
+		padding-bottom: 25px;
+	}
+
 	&__logo {
 		position: relative;
 		margin-right: auto;
 		z-index: 10;
+
+		@include mq("tablet") {
+			&.logo--active {
+				width: 200px;
+				height: 40px;
+			}
+		}
 	}
 
 	&__menu {
@@ -18,11 +33,70 @@
 		justify-content: flex-end;
 		align-items: center;
 		width: 100%;
+
+		@include mq("tablet") {
+			position: absolute;
+			z-index: 9;
+			inset: 0;
+			right: 75px;
+			align-items: flex-start;
+			justify-content: flex-start;
+			padding: 90px 0 0 0;
+			width: 100%;
+			max-width: 300px;
+			transform: translateX(-100%);
+			display: flex;
+			flex-direction: column;
+			background-color: $white;
+			transition: transform 0.3s ease-in-out;
+
+			&.menu--active {
+				transform: translateX(0);
+			}
+		}
+	}
+
+	&__inner {
+		@include mq("tablet") {
+			width: 100%;
+			overflow: auto;
+			padding-bottom: 20px;
+		}
 	}
 
 	&__list {
 		display: flex;
 		margin-right: 50px;
+
+		@include mq("tablet") {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			width: 100%;
+			overflow: auto;
+			margin-right: 0;
+			margin-bottom: 15px;
+			padding: 25px 15px 25px 15px;
+
+			&::after,
+			&::before {
+				content: '';
+				position: absolute;
+				left: -15px;
+				right: 0;
+				height: 2px;
+				background-color: $silver-200;
+			}
+
+			&::after {
+				top: 0;
+			}
+
+			&::before {
+				bottom: 0;
+			}
+		}
 	}
 
 	&__icon {
@@ -33,6 +107,10 @@
 	&__item {
 		&:not(:last-child) {
 			margin-right: 40px;
+
+			@include mq("tablet") {
+				margin-right: 0;
+			}
 		}
 	}
 
@@ -44,6 +122,10 @@
 	&__user {
 		display: flex;
 		gap: 5px;
+
+		@include mq("tablet") {
+			margin-right: 32px;
+		}
 	}
 
 	&__button {
@@ -94,9 +176,22 @@
 		line-height: 150%;
 	}
 
-	.header__contacts-info,
+	.header__contacts-info {
+		display: none;
+
+		@include mq("tablet") {
+			display: block;
+			padding: 0 15px;
+		}
+	}
+
 	.header__socials {
 		display: none;
+
+		@include mq("tablet") {
+			display: flex;
+			padding: 0 15px;
+		}
 	}
 
 	.burger {
@@ -105,96 +200,16 @@
 			visibility: hidden;
 			transition: opacity 0.3s ease, visibility 0.3s linear 0.3s;
 		}
-	}
-}
 
-@include media-sm {
-	.header {
-		padding-top: 25px;
-
-		&__wrapper {
-			position: absolute;
-			z-index: 9;
-			inset: 0;
-			right: 75px;
-			align-items: flex-start;
-			justify-content: flex-start;
-			padding: 105px 0 0 15px;
-			width: auto;
-			transform: translateX(-100%);
-			display: flex;
-			flex-direction: column;
-			background-color: $white;
-			transition: transform 0.3s ease-in-out;
-		}
-
-		&__inner {
-			width: 100%;
-			overflow: auto;
-		}
-
-		&__list {
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			gap: 20px;
-			width: 100%;
-			overflow: auto;
-			margin-right: 0;
-			margin-bottom: 15px;
-			padding: 25px 0;
-
-			&::after,
-			&::before {
-				content: '';
-				position: absolute;
-				left: -15px;
-				right: 0;
-				height: 2px;
-				background-color: $silver-200;
-			}
-
-			&::after {
-				top: 0;
-			}
-
-			&::before {
-				bottom: 0;
-			}
-
-
-		}
-
-		&__user {
-			margin-right: 32px;
-		}
-
-
-		&__wrapper.menu--active {
-			transform: translateX(0);
-		}
-
-		&__logo.logo--active {
-			width: 200px;
-			height: 40px;
-		}
-
-		.header__contacts-info {
-			display: block;
-		}
-
-		.header__socials {
-			display: flex;
-		}
-
-		.burger {
+		@include mq("tablet") {
 			@include burger(30px, 22px, 2px, $darkBlue-900);
 			flex-shrink: 0;
-			z-index: 11;
+			z-index: 8;
 
 			&--close {
 				position: absolute;
-				right: 90px;
+				top: 35px;
+				right: 26px;
 			}
 
 			&--active {
@@ -202,12 +217,5 @@
 				visibility: visible;
 			}
 		}
-	}
-}
-
-
-@include media-xs {
-	.header {
-		padding-bottom: 25px;
 	}
 }

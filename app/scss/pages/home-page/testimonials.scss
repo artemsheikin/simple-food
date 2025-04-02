@@ -1,9 +1,25 @@
 .testimonials {
 	padding-bottom: 132px;
 
+	@include mq("desktop") {
+		padding-bottom: 88px;
+	}
+
+	@include mq("tablet") {
+		padding-bottom: 56px;
+	}
+
+	@include mq("phone") {
+		padding-bottom: 40px;
+	}
+
 	&__title {
 		margin-bottom: 50px;
 		text-align: center;
+
+		@include mq("tablet") {
+			margin-bottom: 30px;
+		}
 	}
 
 	&__wrapper {
@@ -11,17 +27,29 @@
 		margin: 0 auto;
 		padding-bottom: 2px;
 		overflow: hidden;
+
+		@include mq("tablet") {
+			position: relative;
+		}
 	}
 
 
 	&__inner {
 		margin-bottom: 45px;
+
+		@include mq("tablet") {
+			margin-bottom: 0;
+		}
 	}
 
 	&__slide {
 		display: flex;
 		justify-content: space-evenly;
 		align-items: center;
+
+		@include mq("tablet") {
+			flex-direction: column;
+		}
 	}
 
 	&__img {
@@ -32,17 +60,34 @@
 		aspect-ratio: 1 / 1;
 		border-radius: 50%;
 		object-fit: cover;
+
+		@include mq("tablet") {
+			max-width: 200px;
+			margin-bottom: 29px;
+		}
+
+		@include mq("phone") {
+			width: 100px;
+		}
 	}
 
 	&__box {
 		max-width: 610px;
 		width: 100%;
 
+		@include mq("tablet") {
+			max-width: 100%;
+		}
+
 	}
 
 
 	&__info {
 		padding-left: 40px;
+
+		@include mq("desktop") {
+			padding-right: 40px;
+		}
 	}
 
 	&__quote {
@@ -72,12 +117,27 @@
 		&::after {
 			top: 0;
 			left: -40px;
+
+			@include mq("phone") {
+				top: -10px;
+				height: 25px;
+			}
 		}
 
 		&::before {
 			bottom: 0;
 			right: -40px;
 			transform: scaleX(-1);
+
+			@include mq("phone") {
+				bottom: 10px;
+				height: 25px;
+			}
+		}
+
+		@include mq("phone") {
+			font-size: 14px;
+			margin-bottom: 20px;
 		}
 	}
 
@@ -86,6 +146,10 @@
 		margin-bottom: 15px;
 		color: $orange-900;
 		font-weight: 500;
+
+		@include mq("phone") {
+			margin-bottom: 10px;
+		}
 	}
 
 	&__details {
@@ -98,12 +162,30 @@
 		justify-content: center;
 		grid-auto-flow: column;
 		gap: 15px;
+
+		@include mq("tablet") {
+			display: flex;
+			justify-content: space-between;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			padding: 90px 35px 0 35px;
+		}
+
+		@include mq("phone") {
+			padding-top: 27px;
+		}
+
 	}
 
 	&__pagination {
 		display: flex;
 		align-items: center;
 		gap: 8px;
+
+		@include mq("tablet") {
+			display: none;
+		}
 	}
 
 	&__arrow {
@@ -145,98 +227,14 @@
 			width: 13px;
 			height: 13px;
 		}
-	}
-}
 
-.swiper-button-disabled {
-	cursor: default;
-	pointer-events: none;
-	box-shadow: none;
-	opacity: 0.5;
-}
-
-@include media-lg {
-	.testimonials {
-		padding-bottom: 88px;
-
-		&__info {
-			padding-right: 40px;
-		}
-	}
-}
-
-@include media-sm {
-	.testimonials {
-		padding-bottom: 56px;
-
-		&__title {
-			margin-bottom: 30px;
-		}
-
-		&__wrapper {
-			position: relative;
-		}
-
-		&__inner {
-			margin-bottom: 0;
-		}
-
-		&__box {
-			max-width: 100%;
-		}
-
-		&__slide {
-			flex-direction: column;
-		}
-
-		&__img {
-			max-width: 200px;
-			margin-bottom: 29px;
-		}
-
-		&__navigation {
-			display: flex;
-			justify-content: space-between;
-			position: absolute;
-			top: 0;
-			width: 100%;
-			padding: 90px 5px 0 5px;
-		}
-
-		&__arrow {
+		@include mq("tablet") {
 			z-index: 1;
 			width: 30px;
 			height: 30px;
 		}
 
-		&__pagination {
-			display: none;
-		}
-	}
-}
-
-@include media-xs {
-	.testimonials {
-		padding-bottom: 40px;
-
-		&__img {
-			width: 100px;
-		}
-
-		&__navigation {
-			padding-top: 33px;
-		}
-
-		&__quote {
-			font-size: 14px;
-			margin-bottom: 20px;
-		}
-
-		&__author {
-			margin-bottom: 10px;
-		}
-
-		&__arrow {
+		@include mq("phone") {
 			width: 40px;
 			height: 40px;
 
@@ -247,4 +245,11 @@
 			}
 		}
 	}
+}
+
+.swiper-button-disabled {
+	cursor: default;
+	pointer-events: none;
+	box-shadow: none;
+	opacity: 0.5;
 }

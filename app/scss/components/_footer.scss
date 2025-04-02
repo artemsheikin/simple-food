@@ -4,15 +4,34 @@
 		justify-content: space-between;
 		gap: 20px;
 		padding-bottom: 60px;
+
+		@include mq("tablet-2") {
+			flex-wrap: wrap;
+			margin: 0 auto;
+		}
+
+		@include mq("phone") {
+			padding-bottom: 50px;
+			gap: 30px;
+		}
 	}
 
 	&__logo {
 		margin-bottom: 25px;
+
+		@include mq("phone") {
+			width: 200px;
+			height: 40px;
+		}
 	}
 
 	&__wrapper {
 		max-width: 200px;
 		width: 100%;
+
+		@include mq("tablet-2") {
+			order: -2;
+		}
 	}
 
 	&__list {
@@ -23,10 +42,28 @@
 		max-width: 650px;
 		font-size: 18px;
 		line-height: 130%;
+
+		@include mq("tablet-2") {
+			max-width: 100%;
+			row-gap: 10px;
+		}
+
+		@include mq("phone") {
+			grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+			gap: 20px;
+		}
 	}
 
 	&__info {
 		flex-shrink: 0;
+
+		@include mq("tablet-2") {
+			order: -1;
+		}
+
+		@include mq("phone") {
+			margin-right: auto;
+		}
 	}
 
 	&__contacts-info {
@@ -44,54 +81,14 @@
 		justify-content: center;
 		padding: 30px;
 		border-top: 2px solid $silver-200;
+
+		@include mq("phone") {
+			padding: 20px;
+		}
 	}
 
 	&__text {
 		font-size: 14px;
 		line-height: 100%;
-	}
-}
-
-@include media-sm {
-	.footer {
-		&__top {
-			flex-wrap: wrap;
-			margin: 0 auto;
-			max-width: 650px;
-		}
-
-		&__wrapper {
-			order: -2;
-		}
-
-		&__info {
-			order: -1;
-		}
-
-		&__list {
-			max-width: 100%;
-		}
-	}
-}
-
-@include media-xs {
-	.footer {
-		&__logo {
-			width: 200px;
-			height: 40px;
-		}
-
-		&__top {
-			padding-bottom: 50px;
-		}
-
-		&__list {
-			grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-			gap: 20px;
-		}
-
-		&__bottom {
-			padding: 20px;
-		}
 	}
 }

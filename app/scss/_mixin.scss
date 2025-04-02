@@ -14,11 +14,6 @@
 	}
 }
 
-@mixin transition {
-	transition: box-shadow 0.3s, background-color 0.3s, border-radius 0.3s,
-		color 0.3s;
-}
-
 @mixin interactive-states {
 	transition: box-shadow 0.3s, background-color 0.3s, border-radius 0.3s,
 		color 0.3s;
@@ -38,22 +33,6 @@
 		box-shadow: 0 0 0 2px rgba($orange-900, 0);
 		color: $darkGreen-900;
 	}
-}
-
-@mixin focus {
-	border-radius: 5px;
-	box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
-}
-
-@mixin hover {
-	color: $orange-900;
-	fill: $white;
-}
-
-@mixin active {
-	text-shadow: 2px 2px 5px rgba($darkGreen-900, 0.5);
-	box-shadow: 0 0 0 2px rgba($orange-900, 0);
-	color: $darkGreen-900;
 }
 
 @mixin transition-card {
@@ -135,32 +114,18 @@
 	}
 }
 
-@mixin media-xs {
-	@media (max-width: #{$breakpoint-xs}) {
-		@content;
-	}
-}
 
-@mixin media-sm {
-	@media (max-width: #{$breakpoint-sm}) {
-		@content;
-	}
-}
 
-@mixin media-md {
-	@media (max-width: #{$breakpoint-md}) {
-		@content;
-	}
-}
+@mixin mq($width, $type: max) {
+	@if map-has-key($breakpoints, $width) {
+		$width: map-get($breakpoints, $width);
 
-@mixin media-lg {
-	@media (max-width: #{$breakpoint-lg}) {
-		@content;
+		@if $type ==max {
+			$width: $width - 1px;
+		}
 	}
-}
 
-@mixin media-xl {
-	@media (max-width: #{$breakpoint-xl}) {
+	@media only screen and (#{$type}-width: $width) {
 		@content;
 	}
 }

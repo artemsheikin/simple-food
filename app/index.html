@@ -1,15 +1,14 @@
-<!-- prettier-ignore  -->
 <!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="css/style.min.css" />
-		<title>доставка продуктов из ресторанов за 15 минут | Главная страница </title>
-	</head>
-	<body></body>
-</html>
 
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.min.css">
+	<title>доставка продуктов из ресторанов за 15 минут | Главная страница </title>
+</head>
+
+<body>
 
 <h1 class="sr-only">Быстрый сервис доставки еды в вашем городе за 15 минут</h1>
 
@@ -24,7 +23,10 @@
 
 
 			<div class="header__wrapper">
-
+				<button class="burger burger--close" type="button">
+					<span class="burger__line"></span>
+					<span class="sr-only">Открыть меню</span>
+				</button>
 				<div class="header__inner">
 
 					<ul class="header__list">
@@ -96,24 +98,19 @@
 			<div class="header__user">
 				<button class="header__button" type="button">
 					<span class="sr-only">Поиск по сайту</span>
-					<svg class="header__icon">
+					<svg class="header__icon" aria-hidden>
 						<use xlink:href="images/sprite.svg#search"></use>
 					</svg>
 				</button>
 
 				<button class="header__button" type="button">
 					<span class="sr-only">Корзина товара</span>
-					<svg class="header__icon">
+					<svg class="header__icon" aria-hidden>
 						<use xlink:href="images/sprite.svg#cart"></use>
 					</svg>
 					<span class="header__num">4</span>
 				</button>
 			</div>
-
-			<button class="burger burger--close" type="button">
-				<span class="burger__line"></span>
-				<span class="sr-only">Открыть меню</span>
-			</button>
 
 			<button class="burger burger--open" type="button">
 				<span class="burger__line"></span>
@@ -959,8 +956,7 @@
 		</div>
 	</div>
 
-</footer> <!-- <script src="js/main.min.js"></script> -->
-<script src="js/main.min.js"></script>
+</footer> <script src="js/main.min.js"></script>
 </body>
 
-<!-- <script src="js/main.min.js"></script> -->
+</html>

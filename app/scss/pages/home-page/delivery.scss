@@ -1,10 +1,22 @@
 .delivery {
+	@include mq("tablet") {
+		position: relative;
+	}
+
 	&__wrapper {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		gap: 20px;
 		padding: 0 70px;
+
+		@include mq("desktop") {
+			padding: 0;
+		}
+
+		@include mq("tablet") {
+			justify-content: center;
+		}
 	}
 
 	&__img {
@@ -14,6 +26,28 @@
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: contain;
+
+		@include mq("tablet-2") {
+			height: 482px;
+		}
+
+		@include mq("tablet") {
+			position: absolute;
+			top: -20px;
+			height: 462px;
+			z-index: -1;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(249, 250, 255, 0.85);
+				z-index: 1;
+			}
+		}
 	}
 
 	&__content {
@@ -22,6 +56,10 @@
 		gap: 30px;
 		max-width: 470px;
 		width: 100%;
+
+		@include mq("tablet") {
+			max-width: 100%;
+		}
 	}
 
 	&__text {
@@ -74,78 +112,21 @@
 				background-image: url('../images/icons/institution.svg');
 			}
 		}
+
+		@include mq("desktop") {
+			transform: translateY(-15%);
+		}
+
+		@include mq("tablet-2") {
+			font-size: 18px;
+		}
+
+		@include mq("phone") {
+			padding-left: 44px;
+		}
 	}
 
 	&__link {
 		align-self: flex-start;
-	}
-}
-
-@include media-lg {
-	.delivery {
-		&__wrapper {
-			padding: 0;
-		}
-
-		&__item {
-			&::before {
-				transform: translateY(-15%);
-			}
-		}
-	}
-}
-
-
-@include media-md {
-	.delivery {
-		&__item {
-			font-size: 18px;
-		}
-
-		&__img {
-			height: 482px;
-		}
-	}
-
-}
-
-@include media-sm {
-	.delivery {
-		position: relative;
-
-		&__wrapper {
-			justify-content: center;
-		}
-
-		&__content {
-			max-width: 100%;
-		}
-
-		&__img {
-			position: absolute;
-			top: -20px;
-			height: 462px;
-			z-index: -1;
-
-			&::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: rgba(249, 250, 255, 0.85);
-				z-index: 1;
-			}
-		}
-	}
-
-}
-
-@include media-sm {
-	.delivery {
-		&__item {
-			padding-left: 44px;
-		}
 	}
 }

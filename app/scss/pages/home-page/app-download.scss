@@ -1,4 +1,9 @@
 .app-download {
+	@include mq("phone") {
+		font-size: 14px;
+		padding-bottom: 45px;
+	}
+
 	&__wrapper {
 		display: flex;
 		justify-content: space-between;
@@ -13,16 +18,32 @@
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: cover;
+
+		@include mq("tablet") {
+			display: none;
+		}
 	}
 
 
 	&__inner {
 		max-width: 500px;
 		width: 100%;
+
+		@include mq("tablet") {
+			max-width: 100%;
+		}
 	}
 
 	&__title {
 		margin-bottom: 45px;
+
+		@include mq("tablet-2") {
+			margin-bottom: 30px;
+		}
+
+		@include mq("phone") {
+			margin-bottom: 15px;
+		}
 	}
 
 	&__text {
@@ -34,10 +55,16 @@
 				margin-bottom: 8px;
 			}
 		}
+
+		@include mq("phone") {
+			font-size: 14px;
+			margin-bottom: 15px;
+		}
 	}
 
 	&__list {
 		display: flex;
+		flex-wrap: wrap;
 		gap: 30px;
 	}
 
@@ -67,7 +94,8 @@
 		}
 
 		&:focus {
-			@include focus;
+			border-radius: 5px;
+			box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
 		}
 
 		&:hover {
@@ -78,40 +106,6 @@
 		&:active {
 			transform: scale(0.98);
 			background-color: rgba($orange-900, 0.2);
-		}
-	}
-}
-
-@include media-md {
-	.app-download {
-		&__title {
-			margin-bottom: 30px;
-		}
-	}
-}
-
-@include media-sm {
-	.app-download {
-		&__inner {
-			max-width: 100%;
-		}
-
-		&__img {
-			display: none;
-		}
-	}
-}
-
-@include media-xs {
-	.app-download {
-
-		&__title,
-		&__text {
-			margin-bottom: 15px;
-		}
-
-		&__text {
-			font-size: 14px;
 		}
 	}
 }

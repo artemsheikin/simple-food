@@ -6,6 +6,14 @@ body {
 	font-family: 'Rubik', sans-serif;
 	font-weight: 400;
 	font-size: 20px;
+
+	@include mq("tablet-2") {
+		font-size: 18px;
+	}
+
+	@include mq("tablet") {
+		font-size: 16px;
+	}
 }
 
 .container {
@@ -56,6 +64,11 @@ body {
 		width: 100%;
 		height: 100%;
 	}
+
+	@include mq("phone") {
+		height: 23px;
+		width: 115px;
+	}
 }
 
 .button {
@@ -95,10 +108,38 @@ body {
 		background-color: #fff2ed;
 		box-shadow: none;
 	}
+
+	@include mq("tablet-2") {
+		font-size: 16px;
+	}
+
+	@include mq("tablet") {
+		font-size: 14px;
+	}
+
+	@include mq("phone") {
+		padding: 10px 25px;
+	}
 }
 
 .section {
 	padding-bottom: 120px;
+
+	@include mq("desktop-2") {
+		padding-bottom: 104px;
+	}
+
+	@include mq("desktop") {
+		padding-bottom: 88px;
+	}
+
+	@include mq("tablet-2") {
+		padding-bottom: 72px;
+	}
+
+	@include mq("tablet") {
+		padding-bottom: 68px;
+	}
 }
 
 .title {
@@ -107,6 +148,18 @@ body {
 	font-size: 36px;
 	font-weight: 500;
 	line-height: 130%;
+
+	@include mq("tablet-2") {
+		font-size: 32px;
+	}
+
+	@include mq("tablet") {
+		font-size: 28px;
+	}
+
+	@include mq("phone") {
+		font-size: 24px;
+	}
 }
 
 .link {
@@ -196,68 +249,5 @@ body {
 		top: 0;
 		bottom: 0;
 		background-color: rgba($black, 0.5);
-	}
-}
-
-@include media-xl {
-	.section {
-		padding-bottom: 104px;
-	}
-}
-
-@include media-lg {
-	.section {
-		padding-bottom: 88px;
-	}
-}
-
-@include media-md {
-	.title {
-		font-size: 32px;
-	}
-
-	body {
-		font-size: 18px;
-	}
-
-	.button {
-		font-size: 16px;
-	}
-
-	.section {
-		padding-bottom: 72px;
-	}
-}
-
-@include media-sm {
-	.title {
-		font-size: 28px;
-	}
-
-	body {
-		font-size: 16px;
-	}
-
-	.button {
-		font-size: 14px;
-	}
-
-	.section {
-		padding-bottom: 56px;
-	}
-}
-
-@include media-xs {
-	.title {
-		font-size: 24px;
-	}
-
-	.logo {
-		height: 23px;
-		width: 115px;
-	}
-
-	.section {
-		padding-bottom: 40px;
 	}
 }

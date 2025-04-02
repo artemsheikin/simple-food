@@ -13,8 +13,20 @@ document.addEventListener('DOMContentLoaded', () => {
 		body.classList.toggle('lock', isOpen);
 	};
 
+	// Открытие/закрытие через бургер
 	burgerOpen?.addEventListener('click', () => toggleMenu(true));
 	burgerClose?.addEventListener('click', () => toggleMenu(false));
+
+	// Закрытие при клике вне меню
+	document.addEventListener('click', (event) => {
+		if (
+			mobileMenu.classList.contains('menu--active') && // Меню открыто
+			!mobileMenu.contains(event.target) && // Клик не по меню
+			!burgerOpen.contains(event.target) // Клик не по кнопке открытия
+		) {
+			toggleMenu(false);
+		}
+	});
 
 	// Инициализация Swiper с кэшированием экземпляров
 	let swipers = {};

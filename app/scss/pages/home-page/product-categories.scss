@@ -1,7 +1,19 @@
 .product-categories {
 	&__title {
 		text-align: center;
-		margin-bottom: 45px;
+		padding-bottom: 45px;
+
+		@include mq("tablet-2") {
+			padding-bottom: 40px;
+		}
+
+		@include mq("tablet") {
+			padding-bottom: 35px;
+		}
+
+		@include mq("phone") {
+			padding-bottom: 25px;
+		}
 	}
 
 	&__swiper-menu {
@@ -15,6 +27,14 @@
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: 40px;
+
+		@include mq("tablet") {
+			margin-bottom: 35px;
+		}
+
+		@include mq("phone") {
+			margin-bottom: 30px;
+		}
 	}
 
 	&__item-menu {
@@ -32,11 +52,39 @@
 			color: $white;
 			pointer-events: none;
 		}
+
+		@include mq("tablet-2") {
+			padding: 11px 30px;
+		}
+
+		@include mq("tablet") {
+			padding: 11px 20px;
+		}
+
+		@include mq("phone") {
+			padding: 11px 16px;
+			gap: 5px;
+		}
 	}
 
 	&__icon {
 		width: 44px;
 		height: 44px;
+
+		@include mq("tablet-2") {
+			width: 35px;
+			height: 35px;
+		}
+
+		@include mq("tablet") {
+			width: 30px;
+			height: 30px;
+		}
+
+		@include mq("phone") {
+			width: 20px;
+			height: 20px;
+		}
 	}
 
 	&__wrapper {
@@ -44,91 +92,34 @@
 		grid-template-columns: repeat(5, 1fr);
 		gap: 20px;
 		margin-bottom: 60px;
+
+		@include mq("desktop") {
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		@include mq("tablet-2") {
+			gap: 15px;
+			margin-bottom: 50px;
+		}
+
+		@include mq("tablet") {
+			grid-template-columns: repeat(3, 1fr);
+			margin-bottom: 40px;
+		}
+
+		@include mq("phone") {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 
 	&__link {
 		display: flex;
 		width: max-content;
 		margin: 0 auto;
-	}
 
-}
-
-@include media-lg {
-	.product-categories {
-		&__wrapper {
-			grid-template-columns: repeat(4, 1fr);
+		@include mq("phone") {
+			font-size: 20px;
 		}
 	}
-}
 
-
-@include media-md {
-	.product-categories {
-		&__wrapper {
-			gap: 10px;
-			margin-bottom: 50px;
-		}
-
-		&__title {
-			margin-bottom: 40px;
-		}
-
-		&__icon {
-			width: 35px;
-			height: 35px;
-		}
-
-		&__btn {
-			padding: 11px 30px;
-		}
-	}
-}
-
-@include media-sm {
-	.product-categories {
-		&__wrapper {
-			grid-template-columns: repeat(3, 1fr);
-			margin-bottom: 40px;
-		}
-
-		&__title,
-		&__menu {
-			margin-bottom: 35px;
-		}
-
-		&__icon {
-			width: 30px;
-			height: 30px;
-		}
-
-		&__btn {
-			padding: 11px 20px;
-		}
-	}
-}
-
-@include media-xs {
-	.product-categories {
-		&__wrapper {
-			grid-template-columns: repeat(2, 1fr);
-			gap: 5px;
-			margin-bottom: 30px;
-		}
-
-		&__title,
-		&__menu {
-			margin-bottom: 30px;
-		}
-
-		&__icon {
-			width: 20px;
-			height: 20px;
-		}
-
-		&__btn {
-			padding: 11px 16px;
-			gap: 5px;
-		}
-	}
 }

@@ -22,7 +22,7 @@
 	&__img {
 		width: 144px;
 		height: 144px;
-		object-fit: cover;
+		object-fit: contain;
 	}
 
 	&__price {
@@ -55,7 +55,8 @@
 		}
 
 		&:hover::before {
-			@include focus;
+			border-radius: 5px;
+			box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
 		}
 
 		&:focus::before {

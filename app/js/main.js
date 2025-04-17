@@ -28,43 +28,68 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 
-	// Инициализация Swiper с кэшированием экземпляров
-	let swipers = {};
+	let productSwiper = null;
+	let restaurantsSwiper = null;
 
-	const initSwiper = (selector, options, key) => {
-		if (window.innerWidth <= 1200) {
-			if (!swipers[key]) {
-				swipers[key] = new Swiper(selector, options);
+	const initProductSwiper = () => {
+		if (window.innerWidth <= 1200 && window.innerWidth > 992) {
+			// Инициализация слайдера, если ширина окна между 992 и 1200
+			if (!productSwiper) {
+				productSwiper = new Swiper('.product-categories__swiper-menu', {
+					slidesPerView: 'auto',
+					spaceBetween: window.innerWidth <= 576 ? 10 : 20,
+					grabCursor: true,
+				});
 			} else {
-				swipers[key].update();
+				productSwiper.update();
 			}
-		} else {
-			if (swipers[key]) {
-				swipers[key].destroy(true, true);
-				delete swipers[key];
-			}
+		} else if (productSwiper) {
+			productSwiper.destroy(true, true);
+			productSwiper = null;
 		}
 	};
 
-	const updateSwipers = () => {
-		initSwiper('.product-categories__swiper-menu', {
-			slidesPerView: 'auto',
-			spaceBetween: window.innerWidth <= 576 ? 10 : 20,
-			grabCursor: true,
-		}, 'product');
+	const initRestaurantsSwiper = () => {
+		if (window.innerWidth <= 992) {
+			// Инициализация слайдера при ширине меньше 992px
+			const slidesPerView =
+				window.innerWidth <= 576 ? 1 :
+					window.innerWidth < 992 ? 2 : 3;
 
-		const slidesPerView = window.innerWidth <= 576 ? 1 : window.innerWidth <= 992 ? 2 : 3;
-		initSwiper('.top-restaurants__swiper', {
-			slidesPerView,
-			spaceBetween: 20,
-			grabCursor: true,
-			pagination: { el: '.top-restaurants__pagination', clickable: true },
-		}, 'restaurants');
+			if (!restaurantsSwiper) {
+				restaurantsSwiper = new Swiper('.top-restaurants__swiper', {
+					slidesPerView,
+					spaceBetween: 20,
+					grabCursor: true,
+					pagination: {
+						el: '.top-restaurants__pagination',
+						clickable: true,
+					},
+				});
+			} else {
+				restaurantsSwiper.params.slidesPerView = slidesPerView;
+				restaurantsSwiper.update();
+			}
+		} else if (restaurantsSwiper) {
+			// Отключаем слайдер, если ширина больше или равна 992px
+			restaurantsSwiper.destroy(true, true);
+			restaurantsSwiper = null;
+		}
 	};
 
-	updateSwipers();
-	window.addEventListener('resize', updateSwipers);
+	const initSwipers = () => {
+		initProductSwiper();
+		initRestaurantsSwiper();
+	};
 
+	// Таймаут на ресайз, чтобы не дергало при каждом пикселе
+	let resizeTimeout;
+	window.addEventListener('resize', () => {
+		clearTimeout(resizeTimeout);
+		resizeTimeout = setTimeout(initSwipers, 200);
+	});
+
+	initSwipers();
 	new Swiper('.testimonials__wrapper', {
 		slidesPerView: 1,
 		speed: 600,
@@ -93,4 +118,4 @@ document.addEventListener('DOMContentLoaded', () => {
 		defaultCategory?.classList.add('product-categories__btn--active');
 		items.forEach(item => item.style.display = item.dataset.category === 'burgers' ? 'grid' : 'none');
 	}
-});
+});  

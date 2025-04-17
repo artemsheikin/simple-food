@@ -10,7 +10,7 @@
 		gap: 20px;
 		padding: 0 70px;
 
-		@include mq("desktop") {
+		@include mq("tablet-2") {
 			padding: 0;
 		}
 
@@ -113,11 +113,8 @@
 			}
 		}
 
-		@include mq("desktop") {
-			transform: translateY(-15%);
-		}
-
 		@include mq("tablet-2") {
+			transform: translateY(-15%);
 			font-size: 18px;
 		}
 

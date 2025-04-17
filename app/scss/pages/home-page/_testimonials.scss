@@ -1,10 +1,6 @@
 .testimonials {
 	padding-bottom: 132px;
 
-	@include mq("desktop") {
-		padding-bottom: 88px;
-	}
-
 	@include mq("tablet") {
 		padding-bottom: 56px;
 	}
@@ -85,7 +81,7 @@
 	&__info {
 		padding-left: 40px;
 
-		@include mq("desktop") {
+		@include mq("tablet-2") {
 			padding-right: 40px;
 		}
 	}
@@ -245,11 +241,4 @@
 			}
 		}
 	}
-}
-
-.swiper-button-disabled {
-	cursor: default;
-	pointer-events: none;
-	box-shadow: none;
-	opacity: 0.5;
 }

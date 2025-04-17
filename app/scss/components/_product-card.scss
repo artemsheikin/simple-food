@@ -54,17 +54,23 @@
 			@include transition-card;
 		}
 
-		&:hover::before {
-			border-radius: 5px;
-			box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
+		&:hover {
+			&::before {
+				border-radius: 5px;
+				box-shadow: 0 0 0 2px rgba($orange-900, 0.7);
+			}
 		}
 
-		&:focus::before {
-			@include focus-card;
+		&:focus {
+			&::before {
+				@include focus-card;
+			}
 		}
 
-		&:active::before {
-			@include active-card;
+		&:active {
+			&::before {
+				@include active-card;
+			}
 		}
 	}
 }

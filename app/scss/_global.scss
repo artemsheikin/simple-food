@@ -105,7 +105,7 @@ body {
 	}
 
 	&:active {
-		background-color: #fff2ed;
+		background-color: $pastelPink-300;
 		box-shadow: none;
 	}
 
@@ -125,14 +125,6 @@ body {
 .section {
 	padding-bottom: 120px;
 
-	@include mq("desktop-2") {
-		padding-bottom: 104px;
-	}
-
-	@include mq("desktop") {
-		padding-bottom: 88px;
-	}
-
 	@include mq("tablet-2") {
 		padding-bottom: 72px;
 	}
@@ -144,7 +136,7 @@ body {
 
 .title {
 	color: $darkBlue-900;
-	font-family: Rubik;
+	font-family: "Rubik";
 	font-size: 36px;
 	font-weight: 500;
 	line-height: 130%;
@@ -232,6 +224,13 @@ body {
 		pointer-events: none;
 		user-select: none;
 	}
+}
+
+.swiper-button-disabled {
+	cursor: default;
+	pointer-events: none;
+	box-shadow: none;
+	opacity: 0.5;
 }
 
 .lock {

@@ -65,10 +65,12 @@
 
 	.burger__line {
 		position: absolute;
+		display: block;
 		left: 0;
 		top: 50%;
 		transform: translateY(-50%);
 		width: 100%;
+		border-radius: 50px;
 		height: $burgerLineHeight;
 		background-color: currentColor;
 		transition: transform 0.3s ease-in-out;
@@ -82,6 +84,7 @@
 		left: 0;
 		width: 100%;
 		height: $burgerLineHeight;
+		border-radius: 50px;
 		background-color: currentColor;
 		transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
 	}

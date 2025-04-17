@@ -117,6 +117,10 @@
 	&__link {
 		font-size: 18px;
 		@include interactive-states;
+
+		@include mq("tablet") {
+			display: block;
+		}
 	}
 
 	&__user {
@@ -190,6 +194,7 @@
 
 		@include mq("tablet") {
 			display: flex;
+			flex-wrap: wrap;
 			padding: 0 15px;
 		}
 	}
@@ -210,6 +215,7 @@
 				position: absolute;
 				top: 35px;
 				right: 26px;
+				border-radius: 50%;
 			}
 
 			&--active {
